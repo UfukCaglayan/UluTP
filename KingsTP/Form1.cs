@@ -24,7 +24,7 @@ namespace KingsTP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Krallar");
+            MessageBox.Show("ALLAH RAZI OLSUN GİT");
         }
     }
 }
