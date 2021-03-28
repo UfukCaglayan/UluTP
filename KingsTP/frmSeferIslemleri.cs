@@ -22,6 +22,10 @@ namespace KingsTP
         {
             DataTable dtOtobusler = MSSQLDataConnection.SelectDataFromDB("SELECT ID,Plaka FROM tblOtobusler", null);
             cmbOtobus.DataSource = dtOtobusler;
+            DataTable dtKalkis = MSSQLDataConnection.SelectDataFromDB("SELECT ID,TerminalAdi FROM tblTerminaller", null);
+            cmbKalkis.DataSource = dtKalkis;
+            DataTable dtVaris = MSSQLDataConnection.SelectDataFromDB("SELECT ID,TerminalAdi FROM tblTerminaller", null);
+            cmbVaris.DataSource = dtVaris;
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)

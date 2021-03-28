@@ -34,28 +34,28 @@
             this.btnSil = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbOtobus = new System.Windows.Forms.ComboBox();
-            this.cmbKalkis = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtDakika = new System.Windows.Forms.TextBox();
+            this.txtSaat = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nupDakika = new System.Windows.Forms.NumericUpDown();
+            this.nupSaat = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtTarih = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.cmbVaris = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtTarih = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
+            this.cmbKalkis = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbOtobus = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.nupSaat = new System.Windows.Forms.NumericUpDown();
-            this.nupDakika = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
             this.dgvSeferler = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtSaat = new System.Windows.Forms.TextBox();
-            this.txtDakika = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupSaat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDakika)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupSaat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSeferler)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -125,14 +125,119 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kayıt Bilgileri";
             // 
-            // label1
+            // txtDakika
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Otobüs";
+            this.txtDakika.Location = new System.Drawing.Point(254, 153);
+            this.txtDakika.Name = "txtDakika";
+            this.txtDakika.Size = new System.Drawing.Size(61, 22);
+            this.txtDakika.TabIndex = 1008;
+            this.txtDakika.Text = "00";
+            // 
+            // txtSaat
+            // 
+            this.txtSaat.Location = new System.Drawing.Point(147, 153);
+            this.txtSaat.Name = "txtSaat";
+            this.txtSaat.Size = new System.Drawing.Size(61, 22);
+            this.txtSaat.TabIndex = 1007;
+            this.txtSaat.Text = "00";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(235, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(12, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = ":";
+            // 
+            // nupDakika
+            // 
+            this.nupDakika.Location = new System.Drawing.Point(314, 153);
+            this.nupDakika.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nupDakika.Name = "nupDakika";
+            this.nupDakika.Size = new System.Drawing.Size(22, 22);
+            this.nupDakika.TabIndex = 19;
+            this.nupDakika.ValueChanged += new System.EventHandler(this.nupDakika_ValueChanged);
+            // 
+            // nupSaat
+            // 
+            this.nupSaat.Location = new System.Drawing.Point(209, 153);
+            this.nupSaat.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.nupSaat.Name = "nupSaat";
+            this.nupSaat.Size = new System.Drawing.Size(20, 22);
+            this.nupSaat.TabIndex = 18;
+            this.nupSaat.ValueChanged += new System.EventHandler(this.nupSaat_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 155);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 17);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Saat";
+            // 
+            // dtTarih
+            // 
+            this.dtTarih.Location = new System.Drawing.Point(149, 116);
+            this.dtTarih.Name = "dtTarih";
+            this.dtTarih.Size = new System.Drawing.Size(187, 22);
+            this.dtTarih.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 17);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Tarih";
+            // 
+            // cmbVaris
+            // 
+            this.cmbVaris.DisplayMember = "TerminalAdi";
+            this.cmbVaris.FormattingEnabled = true;
+            this.cmbVaris.Location = new System.Drawing.Point(149, 80);
+            this.cmbVaris.Name = "cmbVaris";
+            this.cmbVaris.Size = new System.Drawing.Size(187, 24);
+            this.cmbVaris.TabIndex = 13;
+            this.cmbVaris.ValueMember = "ID";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 17);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Varış Terminali";
+            // 
+            // cmbKalkis
+            // 
+            this.cmbKalkis.DisplayMember = "TerminalAdi";
+            this.cmbKalkis.FormattingEnabled = true;
+            this.cmbKalkis.Location = new System.Drawing.Point(149, 50);
+            this.cmbKalkis.Name = "cmbKalkis";
+            this.cmbKalkis.Size = new System.Drawing.Size(187, 24);
+            this.cmbKalkis.TabIndex = 11;
+            this.cmbKalkis.ValueMember = "ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 17);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Kalkış Terminali";
             // 
             // cmbOtobus
             // 
@@ -149,118 +254,19 @@
             this.cmbOtobus.TabIndex = 9;
             this.cmbOtobus.ValueMember = "ID";
             // 
-            // cmbKalkis
+            // label1
             // 
-            this.cmbKalkis.DisplayMember = "Plaka";
-            this.cmbKalkis.FormattingEnabled = true;
-            this.cmbKalkis.Items.AddRange(new object[] {
-            "Seçiniz",
-            "1+1",
-            "2+1",
-            "3+1"});
-            this.cmbKalkis.Location = new System.Drawing.Point(149, 50);
-            this.cmbKalkis.Name = "cmbKalkis";
-            this.cmbKalkis.Size = new System.Drawing.Size(187, 24);
-            this.cmbKalkis.TabIndex = 11;
-            this.cmbKalkis.ValueMember = "ID";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Kalkış Terminali";
-            // 
-            // cmbVaris
-            // 
-            this.cmbVaris.DisplayMember = "Plaka";
-            this.cmbVaris.FormattingEnabled = true;
-            this.cmbVaris.Items.AddRange(new object[] {
-            "Seçiniz",
-            "1+1",
-            "2+1",
-            "3+1"});
-            this.cmbVaris.Location = new System.Drawing.Point(149, 80);
-            this.cmbVaris.Name = "cmbVaris";
-            this.cmbVaris.Size = new System.Drawing.Size(187, 24);
-            this.cmbVaris.TabIndex = 13;
-            this.cmbVaris.ValueMember = "ID";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 17);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Varış Terminali";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Tarih";
-            // 
-            // dtTarih
-            // 
-            this.dtTarih.Location = new System.Drawing.Point(149, 116);
-            this.dtTarih.Name = "dtTarih";
-            this.dtTarih.Size = new System.Drawing.Size(187, 22);
-            this.dtTarih.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 17);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Saat";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Otobüs";
             // 
             // notifyIcon1
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            // 
-            // nupSaat
-            // 
-            this.nupSaat.Location = new System.Drawing.Point(209, 153);
-            this.nupSaat.Maximum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.nupSaat.Name = "nupSaat";
-            this.nupSaat.Size = new System.Drawing.Size(20, 22);
-            this.nupSaat.TabIndex = 18;
-            this.nupSaat.ValueChanged += new System.EventHandler(this.nupSaat_ValueChanged);
-            // 
-            // nupDakika
-            // 
-            this.nupDakika.Location = new System.Drawing.Point(314, 153);
-            this.nupDakika.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.nupDakika.Name = "nupDakika";
-            this.nupDakika.Size = new System.Drawing.Size(22, 22);
-            this.nupDakika.TabIndex = 19;
-            this.nupDakika.ValueChanged += new System.EventHandler(this.nupDakika_ValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(235, 154);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(12, 17);
-            this.label6.TabIndex = 20;
-            this.label6.Text = ":";
             // 
             // dgvSeferler
             // 
@@ -304,22 +310,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Sefer";
             // 
-            // txtSaat
-            // 
-            this.txtSaat.Location = new System.Drawing.Point(147, 153);
-            this.txtSaat.Name = "txtSaat";
-            this.txtSaat.Size = new System.Drawing.Size(61, 22);
-            this.txtSaat.TabIndex = 1007;
-            this.txtSaat.Text = "00";
-            // 
-            // txtDakika
-            // 
-            this.txtDakika.Location = new System.Drawing.Point(254, 153);
-            this.txtDakika.Name = "txtDakika";
-            this.txtDakika.Size = new System.Drawing.Size(61, 22);
-            this.txtDakika.TabIndex = 1008;
-            this.txtDakika.Text = "00";
-            // 
             // frmSeferIslemleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -336,8 +326,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupSaat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupDakika)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupSaat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSeferler)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
