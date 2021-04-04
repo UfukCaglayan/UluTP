@@ -100,7 +100,7 @@
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(251, 23);
             this.btnSil.TabIndex = 13;
-            this.btnSil.Text = "Sil2";
+            this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
