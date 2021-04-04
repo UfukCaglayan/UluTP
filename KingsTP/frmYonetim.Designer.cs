@@ -62,6 +62,7 @@
             this.tsmTerminalIslemleri.Name = "tsmTerminalIslemleri";
             this.tsmTerminalIslemleri.Size = new System.Drawing.Size(140, 24);
             this.tsmTerminalIslemleri.Text = "Terminal İşlemleri";
+            this.tsmTerminalIslemleri.Click += new System.EventHandler(this.tsmTerminalIslemleri_Click);
             // 
             // tsmSeferIslemleri
             // 

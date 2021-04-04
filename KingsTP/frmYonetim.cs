@@ -30,5 +30,12 @@ namespace KingsTP
             sefer.MdiParent = this;
             sefer.Show();
         }
+
+        private void tsmTerminalIslemleri_Click(object sender, EventArgs e)
+        {
+            frmTerminalIslemleri terminal = new frmTerminalIslemleri();
+            terminal.MdiParent = this;
+            terminal.Show();
+        }
     }
 }
