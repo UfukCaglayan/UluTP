@@ -100,7 +100,7 @@
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(251, 23);
             this.btnSil.TabIndex = 13;
-            this.btnSil.Text = "Sil";
+            this.btnSil.Text = "Sil2";
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
@@ -162,7 +162,7 @@
             this.dgvTerminaller.Name = "dgvTerminaller";
             this.dgvTerminaller.RowHeadersWidth = 51;
             this.dgvTerminaller.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTerminaller.Size = new System.Drawing.Size(729, 406);
+            this.dgvTerminaller.Size = new System.Drawing.Size(729, 434);
             this.dgvTerminaller.TabIndex = 1008;
             this.dgvTerminaller.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTerminaller_CellMouseDoubleClick);
             // 
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 732);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
