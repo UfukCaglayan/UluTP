@@ -29,19 +29,19 @@ namespace KingsTP
         private void btnListele_Click(object sender, EventArgs e)
         {
             string kalkisTarih = dtTarih.Value.ToString("yyyy-MM-dd");
-            Sefer.KalkisID = Convert.ToInt32(cmbKalkis.SelectedValue);
-            Sefer.VarisID = Convert.ToInt32(cmbVaris.SelectedValue);
-            Sefer.tarih = kalkisTarih;
+            Sefer.row = 0;
+            Sefer.dtSeferler = MSSQLDataConnection.SelectDataFromDB("SELECT ID FROM tblSeferler WHERE KalkisTerminalID = @param1 AND VarisTerminalID = @param2 AND CONVERT(DATE, TarihSaat) = @param3", new SqlParameter[] { new SqlParameter("param1", cmbKalkis.SelectedValue), new SqlParameter("param2", cmbVaris.SelectedValue), new SqlParameter("param3", kalkisTarih) });
 
-            int cnt = MSSQLDataConnection.SelectIntFromDB("SELECT COUNT(*) FROM tblSeferler WHERE KalkisTerminaIID = @param1 AND VarisTerminalIID = @param2 AND CONVERT(DATE, TarihSaat) = @param3", new SqlParameter[] { new SqlParameter("param1", cmbKalkis.SelectedValue), new SqlParameter("param2", cmbVaris.SelectedValue), new SqlParameter("param3", kalkisTarih) });
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < Sefer.dtSeferler.Rows.Count; i++)
             {
                 ucSefer uc1 = new ucSefer();
-                uc1.Top = i * 100;
+                uc1.Top = i * 70;
                 pnlSeferler.Controls.Add(uc1);
             }
             
           
         }
+
+     
     }
 }

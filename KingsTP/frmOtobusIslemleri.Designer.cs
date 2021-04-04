@@ -30,9 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtPlaka = new System.Windows.Forms.TextBox();
-            this.txtKoltukSayisi = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbKoltukTuru = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -67,15 +65,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Koltuk Türü";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 17);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Koltuk Sayısı";
-            // 
             // txtPlaka
             // 
             this.txtPlaka.Location = new System.Drawing.Point(149, 21);
@@ -83,21 +72,12 @@
             this.txtPlaka.Size = new System.Drawing.Size(187, 22);
             this.txtPlaka.TabIndex = 4;
             // 
-            // txtKoltukSayisi
-            // 
-            this.txtKoltukSayisi.Location = new System.Drawing.Point(149, 82);
-            this.txtKoltukSayisi.Name = "txtKoltukSayisi";
-            this.txtKoltukSayisi.Size = new System.Drawing.Size(187, 22);
-            this.txtKoltukSayisi.TabIndex = 6;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cmbKoltukTuru);
             this.groupBox1.Controls.Add(this.txtPlaka);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtKoltukSayisi);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(12, 23);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(384, 138);
@@ -107,6 +87,7 @@
             // 
             // cmbKoltukTuru
             // 
+            this.cmbKoltukTuru.DisplayMember = "KoltukTuru";
             this.cmbKoltukTuru.FormattingEnabled = true;
             this.cmbKoltukTuru.Items.AddRange(new object[] {
             "Seçiniz",
@@ -117,6 +98,7 @@
             this.cmbKoltukTuru.Name = "cmbKoltukTuru";
             this.cmbKoltukTuru.Size = new System.Drawing.Size(187, 24);
             this.cmbKoltukTuru.TabIndex = 8;
+            this.cmbKoltukTuru.ValueMember = "ID";
             // 
             // groupBox2
             // 
@@ -239,9 +221,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtPlaka;
-        private System.Windows.Forms.TextBox txtKoltukSayisi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnTemizle;

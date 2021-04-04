@@ -16,7 +16,7 @@ namespace KingsTP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmYonetim());
+            Application.Run(new frmSatis());
         }
     }
 }

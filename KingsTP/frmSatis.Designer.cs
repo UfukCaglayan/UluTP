@@ -163,7 +163,7 @@
             // lbFiyat
             // 
             this.lbFiyat.AutoSize = true;
-            this.lbFiyat.Location = new System.Drawing.Point(908, 283);
+            this.lbFiyat.Location = new System.Drawing.Point(928, 283);
             this.lbFiyat.Name = "lbFiyat";
             this.lbFiyat.Size = new System.Drawing.Size(38, 17);
             this.lbFiyat.TabIndex = 27;
@@ -172,7 +172,7 @@
             // lbKalanKoltuk
             // 
             this.lbKalanKoltuk.AutoSize = true;
-            this.lbKalanKoltuk.Location = new System.Drawing.Point(666, 283);
+            this.lbKalanKoltuk.Location = new System.Drawing.Point(686, 283);
             this.lbKalanKoltuk.Name = "lbKalanKoltuk";
             this.lbKalanKoltuk.Size = new System.Drawing.Size(87, 17);
             this.lbKalanKoltuk.TabIndex = 26;
@@ -181,7 +181,7 @@
             // lbVaris
             // 
             this.lbVaris.AutoSize = true;
-            this.lbVaris.Location = new System.Drawing.Point(429, 283);
+            this.lbVaris.Location = new System.Drawing.Point(449, 283);
             this.lbVaris.Name = "lbVaris";
             this.lbVaris.Size = new System.Drawing.Size(40, 17);
             this.lbVaris.TabIndex = 24;
@@ -190,7 +190,7 @@
             // lbKalkis
             // 
             this.lbKalkis.AutoSize = true;
-            this.lbKalkis.Location = new System.Drawing.Point(171, 283);
+            this.lbKalkis.Location = new System.Drawing.Point(191, 283);
             this.lbKalkis.Name = "lbKalkis";
             this.lbKalkis.Size = new System.Drawing.Size(45, 17);
             this.lbKalkis.TabIndex = 22;
@@ -200,7 +200,7 @@
             // 
             this.pnlSeferler.Location = new System.Drawing.Point(133, 339);
             this.pnlSeferler.Name = "pnlSeferler";
-            this.pnlSeferler.Size = new System.Drawing.Size(856, 674);
+            this.pnlSeferler.Size = new System.Drawing.Size(1184, 674);
             this.pnlSeferler.TabIndex = 28;
             // 
             // frmSatis

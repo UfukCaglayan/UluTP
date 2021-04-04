@@ -22,29 +22,35 @@ namespace KingsTP
         private void Temizle()
         {
             txtPlaka.Text = "";
-            cmbKoltukTuru.SelectedIndex = 0;
-            txtKoltukSayisi.Text = "";
+            cmbKoltukTuru.Text = "Seçiniz";
+            kaydet = true;
 
         }
 
         private void Goster()
         {
-            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT * FROM tblOtobusler", null);
+            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT O.ID,Plaka,KoltukTuru,KoltukTuruID FROM tblOtobusler O INNER JOIN tblKoltukTurleri KT ON O.KoltukTuruID = KT.ID", null);
             dgvOtobusler.DataSource = dt;
             if (dt.Rows.Count > 0)
+            {
                 dgvOtobusler.Columns[0].Visible = false;
+                dgvOtobusler.Columns[3].Visible = false;
+            }
 
             Temizle();
         }
 
         private void frmOtobusIslemleri_Load(object sender, EventArgs e)
         {
+            DataTable dtKoltuk = MSSQLDataConnection.SelectDataFromDB("SELECT ID,KoltukTuru FROM tblKoltukTurleri", null);
+            cmbKoltukTuru.DataSource = dtKoltuk;
+            cmbKoltukTuru.Text = "Seçiniz";
             Goster();
         }
         int seciliID;
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            if (txtPlaka.Text != null && cmbKoltukTuru.SelectedIndex != 0 && txtKoltukSayisi.Text != "")
+            if (txtPlaka.Text != null && cmbKoltukTuru.Text != "Seçiniz")
             {
                 if (txtPlaka.Text.Length == 8)
                 {
@@ -54,7 +60,7 @@ namespace KingsTP
                     {
                         if (cnt == 0)
                         {
-                            MSSQLDataConnection.InsertDataToDB("INSERT INTO tblOtobusler (Plaka,KoltukTuru,KoltukSayisi) VALUES (@param1,@param2,@param3)", new SqlParameter[] { new SqlParameter("param1", txtPlaka.Text), new SqlParameter("param2", cmbKoltukTuru.SelectedItem), new SqlParameter("param3", txtKoltukSayisi.Text) });
+                            MSSQLDataConnection.InsertDataToDB("INSERT INTO tblOtobusler (Plaka,KoltukTuruID) VALUES (@param1,@param2)", new SqlParameter[] { new SqlParameter("param1", txtPlaka.Text), new SqlParameter("param2", cmbKoltukTuru.SelectedValue) });
                             Goster();
                             MessageBox.Show("Kayıt Başarıyla Eklendi.", "Kayıt Ekleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
@@ -63,7 +69,7 @@ namespace KingsTP
                     }
                     else
                     {
-                        MSSQLDataConnection.UpdateDataToDB("UPDATE tblOtobusler SET Plaka = @param1,KoltukTuru= @param2,KoltukSayisi = @param3 WHERE ID = @param4 ", new SqlParameter[] { new SqlParameter("param1", txtPlaka.Text), new SqlParameter("param2", cmbKoltukTuru.SelectedItem), new SqlParameter("param3", txtKoltukSayisi.Text), new SqlParameter("param4", seciliID) });
+                        MSSQLDataConnection.UpdateDataToDB("UPDATE tblOtobusler SET Plaka = @param1,KoltukTuruID= @param2 WHERE ID = @param3 ", new SqlParameter[] { new SqlParameter("param1", txtPlaka.Text), new SqlParameter("param2", cmbKoltukTuru.SelectedValue), new SqlParameter("param3", seciliID) });
                         MessageBox.Show("Kayıt Başarıyla Güncellendi.", "Kayıt Güncelleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         Goster();
                         kaydet = true;
@@ -105,8 +111,7 @@ namespace KingsTP
         {
             seciliID = Convert.ToInt32(dgvOtobusler.CurrentRow.Cells[0].Value.ToString());
             txtPlaka.Text = dgvOtobusler.CurrentRow.Cells[1].Value.ToString();
-            txtKoltukSayisi.Text = dgvOtobusler.CurrentRow.Cells[2].Value.ToString();
-            cmbKoltukTuru.Text = dgvOtobusler.CurrentRow.Cells[3].Value.ToString();
+            cmbKoltukTuru.SelectedValue = dgvOtobusler.CurrentRow.Cells[3].Value.ToString();
             kaydet = false;
         }
 

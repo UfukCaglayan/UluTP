@@ -127,26 +127,23 @@ namespace KingsTP
             return sonuc;
         }
 
-        public static void InsertTablo(DataTable dt)
+        public static void InsertRezerveTablo(DataTable dt)
         {
-
             if (dt.Rows.Count > 0)
             {
                 using (SqlConnection con = new SqlConnection(dbConnStr))
                 {
-                    using (SqlCommand cmd = new SqlCommand("Insert_Grup"))
+                    using (SqlCommand cmd = new SqlCommand("Insert_Rezerve"))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Connection = con;
-                        cmd.Parameters.AddWithValue("@tblUyeGrupSp", dt);
+                        cmd.Parameters.AddWithValue("@tblRezervePrd", dt);
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }
                 }
             }
-
-
 
         }
         public static bool UpdateDataToDB(string Query, SqlParameter[] Parameters)
