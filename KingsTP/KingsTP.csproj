@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,10 +54,87 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKoltukRezerve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKoltukRezerve.Designer.cs">
+      <DependentUpon>frmKoltukRezerve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSatis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSatis.Designer.cs">
+      <DependentUpon>frmSatis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRezerveBilgi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRezerveBilgi.Designer.cs">
+      <DependentUpon>frmRezerveBilgi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeferIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeferIslemleri.Designer.cs">
+      <DependentUpon>frmSeferIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTerminalIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTerminalIslemleri.Designer.cs">
+      <DependentUpon>frmTerminalIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYonetim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYonetim.Designer.cs">
+      <DependentUpon>frmYonetim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOtobusIslemleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOtobusIslemleri.Designer.cs">
+      <DependentUpon>frmOtobusIslemleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MSSQLDataConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sefer.cs" />
+    <Compile Include="ucRezerve.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRezerve.Designer.cs">
+      <DependentUpon>ucRezerve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucSefer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSefer.Designer.cs">
+      <DependentUpon>ucSefer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKoltukRezerve.resx">
+      <DependentUpon>frmKoltukRezerve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSatis.resx">
+      <DependentUpon>frmSatis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRezerveBilgi.resx">
+      <DependentUpon>frmRezerveBilgi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeferIslemleri.resx">
+      <DependentUpon>frmSeferIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTerminalIslemleri.resx">
+      <DependentUpon>frmTerminalIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYonetim.resx">
+      <DependentUpon>frmYonetim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOtobusIslemleri.resx">
+      <DependentUpon>frmOtobusIslemleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -68,6 +146,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucRezerve.resx">
+      <DependentUpon>ucRezerve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSefer.resx">
+      <DependentUpon>ucSefer.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
