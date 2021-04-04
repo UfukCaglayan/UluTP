@@ -110,7 +110,7 @@
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(251, 23);
             this.btnKaydet.TabIndex = 12;
-            this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.Text = "Kaydet2";
             this.btnKaydet.UseVisualStyleBackColor = true;
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 

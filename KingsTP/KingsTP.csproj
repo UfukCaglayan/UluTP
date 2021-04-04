@@ -127,6 +127,9 @@
     <EmbeddedResource Include="frmSeferIslemleri.resx">
       <DependentUpon>frmSeferIslemleri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTerminalIslemleri.resx">
+      <DependentUpon>frmTerminalIslemleri.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmYonetim.resx">
       <DependentUpon>frmYonetim.cs</DependentUpon>
     </EmbeddedResource>
