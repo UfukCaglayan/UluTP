@@ -137,7 +137,7 @@ namespace KingsTP
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Connection = con;
-                        cmd.Parameters.AddWithValue("@tblRezervePrd", dt);
+                        cmd.Parameters.AddWithValue("@tblRezerveSp", dt);
                         con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();

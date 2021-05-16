@@ -35,8 +35,8 @@
             this.lbKalkisSaat = new System.Windows.Forms.Label();
             this.lbKalkisTerminal = new System.Windows.Forms.Label();
             this.btnSatinAl = new System.Windows.Forms.Button();
-            this.lbSeferID = new System.Windows.Forms.Label();
             this.lbKoltukTuru = new System.Windows.Forms.Label();
+            this.lbSeferID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbFiyat
@@ -103,15 +103,6 @@
             this.btnSatinAl.UseVisualStyleBackColor = true;
             this.btnSatinAl.Click += new System.EventHandler(this.btnSatinAl_Click);
             // 
-            // lbSeferID
-            // 
-            this.lbSeferID.AutoSize = true;
-            this.lbSeferID.Location = new System.Drawing.Point(4, 16);
-            this.lbSeferID.Name = "lbSeferID";
-            this.lbSeferID.Size = new System.Drawing.Size(0, 17);
-            this.lbSeferID.TabIndex = 35;
-            this.lbSeferID.Visible = false;
-            // 
             // lbKoltukTuru
             // 
             this.lbKoltukTuru.AutoSize = true;
@@ -120,6 +111,15 @@
             this.lbKoltukTuru.Size = new System.Drawing.Size(81, 17);
             this.lbKoltukTuru.TabIndex = 36;
             this.lbKoltukTuru.Text = "Koltuk Türü";
+            // 
+            // lbSeferID
+            // 
+            this.lbSeferID.AutoSize = true;
+            this.lbSeferID.Location = new System.Drawing.Point(4, 16);
+            this.lbSeferID.Name = "lbSeferID";
+            this.lbSeferID.Size = new System.Drawing.Size(0, 17);
+            this.lbSeferID.TabIndex = 35;
+            this.lbSeferID.Visible = false;
             // 
             // ucSefer
             // 
@@ -150,8 +150,8 @@
         private System.Windows.Forms.Label lbVarisTerminal;
         private System.Windows.Forms.Label lbKalkisSaat;
         private System.Windows.Forms.Button btnSatinAl;
-        private System.Windows.Forms.Label lbSeferID;
         private System.Windows.Forms.Label lbKoltukTuru;
         public System.Windows.Forms.Label lbKalkisTerminal;
+        private System.Windows.Forms.Label lbSeferID;
     }
 }

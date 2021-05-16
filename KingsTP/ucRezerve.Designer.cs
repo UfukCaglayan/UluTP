@@ -106,7 +106,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbKoltukNo);
             this.Name = "ucRezerve";
-            this.Size = new System.Drawing.Size(932, 75);
+            this.Size = new System.Drawing.Size(930, 75);
             this.Load += new System.EventHandler(this.ucRezerve_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

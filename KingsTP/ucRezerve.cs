@@ -19,8 +19,8 @@ namespace KingsTP
 
         private void ucRezerve_Load(object sender, EventArgs e)
         {
-            lbKoltukNo.Text = Sefer.koltukNo[Sefer.koltukInd].ToString();
-            Sefer.koltukInd++;
+           // lbKoltukNo.Text = Sefer1.koltukNo[Sefer1.koltukInd].ToString();
+            //Sefer1.koltukInd++;
         }
     }
 }

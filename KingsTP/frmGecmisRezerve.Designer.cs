@@ -1,6 +1,6 @@
 ﻿namespace KingsTP
 {
-    partial class frmRezerveBilgi
+    partial class frmGecmisRezerve
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlSeferler = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pnlGecmis = new System.Windows.Forms.Panel();
+            this.lbMain = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // pnlSeferler
+            // pnlGecmis
             // 
-            this.pnlSeferler.Location = new System.Drawing.Point(72, 328);
-            this.pnlSeferler.Name = "pnlSeferler";
-            this.pnlSeferler.Size = new System.Drawing.Size(1184, 674);
-            this.pnlSeferler.TabIndex = 29;
+            this.pnlGecmis.Location = new System.Drawing.Point(72, 61);
+            this.pnlGecmis.Name = "pnlGecmis";
+            this.pnlGecmis.Size = new System.Drawing.Size(1184, 941);
+            this.pnlGecmis.TabIndex = 29;
             // 
-            // label1
+            // lbMain
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 272);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "label1";
+            this.lbMain.AutoSize = true;
+            this.lbMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbMain.ForeColor = System.Drawing.Color.Blue;
+            this.lbMain.Location = new System.Drawing.Point(69, 19);
+            this.lbMain.Name = "lbMain";
+            this.lbMain.Size = new System.Drawing.Size(84, 17);
+            this.lbMain.TabIndex = 30;
+            this.lbMain.Text = "ANA SAYFA";
+            this.lbMain.Click += new System.EventHandler(this.lbMain_Click);
             // 
-            // frmRezerveBilgi
+            // frmGecmisRezerve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pnlSeferler);
-            this.Name = "frmRezerveBilgi";
+            this.Controls.Add(this.lbMain);
+            this.Controls.Add(this.pnlGecmis);
+            this.Name = "frmGecmisRezerve";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Satış Bilgi";
             this.Load += new System.EventHandler(this.frmRezerveBilgi_Load);
             this.ResumeLayout(false);
@@ -65,7 +69,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlSeferler;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlGecmis;
+        private System.Windows.Forms.Label lbMain;
     }
 }
