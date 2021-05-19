@@ -129,6 +129,7 @@ namespace KingsTP
         {
             pnlCinsiyet.Visible = false;
             Koltuklar = new SingleLinkedList();
+            pnlRezerveUst.Visible = false;
         }
 
 
@@ -151,11 +152,13 @@ namespace KingsTP
                 uc1.Name = "ucRezerve" + sayac;
                 Label lbKoltukNo = uc1.Controls.Find("lbKoltukNo", true).FirstOrDefault() as Label;
                 lbKoltukNo.Text = iter.data.ToString();
-                uc1.Top = sayac * 70;
+                uc1.Top = sayac * 80;
                 pnlBilgiler.Controls.Add(uc1);
+                pnlBilgiler.Height = (sayac + 1) * 100;
                 sayac++;
                 iter = iter.next;
             }
+            pnlRezerveUst.Visible = true;
         }
 
         private void btnOdeme_Click(object sender, EventArgs e)

@@ -40,7 +40,6 @@
             this.dtDonusTarih = new System.Windows.Forms.DateTimePicker();
             this.btnListele = new System.Windows.Forms.Button();
             this.lbFiyat = new System.Windows.Forms.Label();
-            this.lbKalanKoltuk = new System.Windows.Forms.Label();
             this.lbVaris = new System.Windows.Forms.Label();
             this.lbKalkis = new System.Windows.Forms.Label();
             this.pnlSeferler = new System.Windows.Forms.Panel();
@@ -52,6 +51,7 @@
             this.pnlBilgiler = new System.Windows.Forms.Panel();
             this.pnlSeferUst = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbKalanKoltuk = new System.Windows.Forms.Label();
             this.grpGiris.SuspendLayout();
             this.pnlBilgiler.SuspendLayout();
             this.pnlSeferUst.SuspendLayout();
@@ -61,9 +61,10 @@
             // rbTekYon
             // 
             this.rbTekYon.AutoSize = true;
-            this.rbTekYon.Location = new System.Drawing.Point(64, 36);
+            this.rbTekYon.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTekYon.Location = new System.Drawing.Point(72, 37);
             this.rbTekYon.Name = "rbTekYon";
-            this.rbTekYon.Size = new System.Drawing.Size(82, 21);
+            this.rbTekYon.Size = new System.Drawing.Size(109, 27);
             this.rbTekYon.TabIndex = 0;
             this.rbTekYon.TabStop = true;
             this.rbTekYon.Text = "Tek Yön";
@@ -73,102 +74,116 @@
             // rbGidisDonus
             // 
             this.rbGidisDonus.AutoSize = true;
-            this.rbGidisDonus.Location = new System.Drawing.Point(185, 36);
+            this.rbGidisDonus.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbGidisDonus.Location = new System.Drawing.Point(200, 37);
             this.rbGidisDonus.Name = "rbGidisDonus";
-            this.rbGidisDonus.Size = new System.Drawing.Size(106, 21);
+            this.rbGidisDonus.Size = new System.Drawing.Size(148, 27);
             this.rbGidisDonus.TabIndex = 1;
             this.rbGidisDonus.TabStop = true;
-            this.rbGidisDonus.Text = "Gidiş Dönüş";
+            this.rbGidisDonus.Text = "Gidis Donus";
             this.rbGidisDonus.UseVisualStyleBackColor = true;
             this.rbGidisDonus.CheckedChanged += new System.EventHandler(this.rbGidisDonus_CheckedChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 75);
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(38, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(109, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nereden";
             // 
             // cmbKalkis
             // 
             this.cmbKalkis.DisplayMember = "TerminalAdi";
+            this.cmbKalkis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbKalkis.FormattingEnabled = true;
             this.cmbKalkis.Items.AddRange(new object[] {
             "Seçiniz",
             "1+1",
             "2+1",
             "3+1"});
-            this.cmbKalkis.Location = new System.Drawing.Point(133, 72);
+            this.cmbKalkis.Location = new System.Drawing.Point(205, 77);
             this.cmbKalkis.Name = "cmbKalkis";
-            this.cmbKalkis.Size = new System.Drawing.Size(176, 24);
+            this.cmbKalkis.Size = new System.Drawing.Size(176, 30);
             this.cmbKalkis.TabIndex = 10;
             this.cmbKalkis.ValueMember = "ID";
             // 
             // cmbVaris
             // 
             this.cmbVaris.DisplayMember = "TerminalAdi";
+            this.cmbVaris.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbVaris.FormattingEnabled = true;
             this.cmbVaris.Items.AddRange(new object[] {
             "Seçiniz",
             "1+1",
             "2+1",
             "3+1"});
-            this.cmbVaris.Location = new System.Drawing.Point(133, 106);
+            this.cmbVaris.Location = new System.Drawing.Point(205, 116);
             this.cmbVaris.Name = "cmbVaris";
-            this.cmbVaris.Size = new System.Drawing.Size(176, 24);
+            this.cmbVaris.Size = new System.Drawing.Size(176, 30);
             this.cmbVaris.TabIndex = 12;
             this.cmbVaris.ValueMember = "ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 109);
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(38, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 17);
+            this.label2.Size = new System.Drawing.Size(93, 27);
             this.label2.TabIndex = 11;
             this.label2.Text = "Nereye";
             // 
             // dtGidisTarih
             // 
+            this.dtGidisTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtGidisTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtGidisTarih.Location = new System.Drawing.Point(133, 138);
+            this.dtGidisTarih.Location = new System.Drawing.Point(205, 152);
             this.dtGidisTarih.Name = "dtGidisTarih";
-            this.dtGidisTarih.Size = new System.Drawing.Size(176, 22);
+            this.dtGidisTarih.Size = new System.Drawing.Size(176, 28);
             this.dtGidisTarih.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 143);
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(38, 152);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 17);
+            this.label3.Size = new System.Drawing.Size(138, 27);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Gidiş Tarihi";
+            this.label3.Text = "Gidis Tarihi";
             // 
             // lbDonus
             // 
             this.lbDonus.AutoSize = true;
-            this.lbDonus.Location = new System.Drawing.Point(38, 173);
+            this.lbDonus.Font = new System.Drawing.Font("Arial Rounded MT Bold", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDonus.ForeColor = System.Drawing.Color.Black;
+            this.lbDonus.Location = new System.Drawing.Point(38, 185);
             this.lbDonus.Name = "lbDonus";
-            this.lbDonus.Size = new System.Drawing.Size(89, 17);
+            this.lbDonus.Size = new System.Drawing.Size(153, 27);
             this.lbDonus.TabIndex = 19;
-            this.lbDonus.Text = "Dönüş Tarihi";
+            this.lbDonus.Text = "Dönüs Tarihi";
             // 
             // dtDonusTarih
             // 
+            this.dtDonusTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtDonusTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDonusTarih.Location = new System.Drawing.Point(133, 168);
+            this.dtDonusTarih.Location = new System.Drawing.Point(205, 186);
             this.dtDonusTarih.Name = "dtDonusTarih";
-            this.dtDonusTarih.Size = new System.Drawing.Size(176, 22);
+            this.dtDonusTarih.Size = new System.Drawing.Size(176, 28);
             this.dtDonusTarih.TabIndex = 18;
             // 
             // btnListele
             // 
-            this.btnListele.Location = new System.Drawing.Point(41, 198);
+            this.btnListele.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnListele.Location = new System.Drawing.Point(42, 219);
             this.btnListele.Name = "btnListele";
-            this.btnListele.Size = new System.Drawing.Size(268, 23);
+            this.btnListele.Size = new System.Drawing.Size(339, 40);
             this.btnListele.TabIndex = 20;
             this.btnListele.Text = "LİSTELE";
             this.btnListele.UseVisualStyleBackColor = true;
@@ -177,49 +192,45 @@
             // lbFiyat
             // 
             this.lbFiyat.AutoSize = true;
-            this.lbFiyat.Location = new System.Drawing.Point(799, 10);
+            this.lbFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbFiyat.Location = new System.Drawing.Point(884, 7);
             this.lbFiyat.Name = "lbFiyat";
-            this.lbFiyat.Size = new System.Drawing.Size(38, 17);
+            this.lbFiyat.Size = new System.Drawing.Size(49, 24);
             this.lbFiyat.TabIndex = 27;
             this.lbFiyat.Text = "Fiyat";
-            // 
-            // lbKalanKoltuk
-            // 
-            this.lbKalanKoltuk.AutoSize = true;
-            this.lbKalanKoltuk.Location = new System.Drawing.Point(502, 10);
-            this.lbKalanKoltuk.Name = "lbKalanKoltuk";
-            this.lbKalanKoltuk.Size = new System.Drawing.Size(87, 17);
-            this.lbKalanKoltuk.TabIndex = 26;
-            this.lbKalanKoltuk.Text = "Kalan Koltuk";
             // 
             // lbVaris
             // 
             this.lbVaris.AutoSize = true;
-            this.lbVaris.Location = new System.Drawing.Point(320, 10);
+            this.lbVaris.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbVaris.Location = new System.Drawing.Point(405, 7);
             this.lbVaris.Name = "lbVaris";
-            this.lbVaris.Size = new System.Drawing.Size(40, 17);
+            this.lbVaris.Size = new System.Drawing.Size(52, 24);
             this.lbVaris.TabIndex = 24;
             this.lbVaris.Text = "Varış";
             // 
             // lbKalkis
             // 
             this.lbKalkis.AutoSize = true;
-            this.lbKalkis.Location = new System.Drawing.Point(62, 10);
+            this.lbKalkis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbKalkis.Location = new System.Drawing.Point(98, 7);
             this.lbKalkis.Name = "lbKalkis";
-            this.lbKalkis.Size = new System.Drawing.Size(45, 17);
+            this.lbKalkis.Size = new System.Drawing.Size(58, 24);
             this.lbKalkis.TabIndex = 22;
             this.lbKalkis.Text = "Kalkış";
             // 
             // pnlSeferler
             // 
-            this.pnlSeferler.Location = new System.Drawing.Point(133, 339);
+            this.pnlSeferler.BackColor = System.Drawing.Color.Transparent;
+            this.pnlSeferler.Location = new System.Drawing.Point(363, 346);
             this.pnlSeferler.Name = "pnlSeferler";
-            this.pnlSeferler.Size = new System.Drawing.Size(1184, 674);
+            this.pnlSeferler.Size = new System.Drawing.Size(1184, 203);
             this.pnlSeferler.TabIndex = 28;
             // 
             // grpGiris
             // 
             this.grpGiris.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpGiris.BackColor = System.Drawing.Color.Transparent;
             this.grpGiris.Controls.Add(this.btnGiris);
             this.grpGiris.Controls.Add(this.btnKayit);
             this.grpGiris.Location = new System.Drawing.Point(1676, -1);
@@ -230,9 +241,10 @@
             // 
             // btnGiris
             // 
-            this.btnGiris.Location = new System.Drawing.Point(78, 38);
+            this.btnGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGiris.Location = new System.Drawing.Point(29, 50);
             this.btnGiris.Name = "btnGiris";
-            this.btnGiris.Size = new System.Drawing.Size(75, 23);
+            this.btnGiris.Size = new System.Drawing.Size(75, 39);
             this.btnGiris.TabIndex = 1;
             this.btnGiris.Text = "Giriş";
             this.btnGiris.UseVisualStyleBackColor = true;
@@ -240,9 +252,10 @@
             // 
             // btnKayit
             // 
-            this.btnKayit.Location = new System.Drawing.Point(78, 79);
+            this.btnKayit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKayit.Location = new System.Drawing.Point(129, 50);
             this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(75, 23);
+            this.btnKayit.Size = new System.Drawing.Size(75, 39);
             this.btnKayit.TabIndex = 0;
             this.btnKayit.Text = "Kayıt";
             this.btnKayit.UseVisualStyleBackColor = true;
@@ -269,6 +282,7 @@
             // 
             // pnlBilgiler
             // 
+            this.pnlBilgiler.BackColor = System.Drawing.Color.Transparent;
             this.pnlBilgiler.Controls.Add(this.lbAdSoyad);
             this.pnlBilgiler.Controls.Add(this.lbGecmis);
             this.pnlBilgiler.Location = new System.Drawing.Point(12, 12);
@@ -278,17 +292,19 @@
             // 
             // pnlSeferUst
             // 
+            this.pnlSeferUst.BackColor = System.Drawing.Color.White;
             this.pnlSeferUst.Controls.Add(this.lbFiyat);
             this.pnlSeferUst.Controls.Add(this.lbKalkis);
             this.pnlSeferUst.Controls.Add(this.lbVaris);
             this.pnlSeferUst.Controls.Add(this.lbKalanKoltuk);
-            this.pnlSeferUst.Location = new System.Drawing.Point(133, 290);
+            this.pnlSeferUst.Location = new System.Drawing.Point(363, 297);
             this.pnlSeferUst.Name = "pnlSeferUst";
             this.pnlSeferUst.Size = new System.Drawing.Size(1184, 34);
             this.pnlSeferUst.TabIndex = 33;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.rbTekYon);
             this.groupBox1.Controls.Add(this.rbGidisDonus);
             this.groupBox1.Controls.Add(this.label1);
@@ -300,17 +316,29 @@
             this.groupBox1.Controls.Add(this.dtGidisTarih);
             this.groupBox1.Controls.Add(this.dtDonusTarih);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(607, 12);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.Location = new System.Drawing.Point(837, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(363, 251);
+            this.groupBox1.Size = new System.Drawing.Size(405, 279);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sefer Bilgileri";
+            // 
+            // lbKalanKoltuk
+            // 
+            this.lbKalanKoltuk.AutoSize = true;
+            this.lbKalanKoltuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbKalanKoltuk.Location = new System.Drawing.Point(579, 7);
+            this.lbKalanKoltuk.Name = "lbKalanKoltuk";
+            this.lbKalanKoltuk.Size = new System.Drawing.Size(113, 24);
+            this.lbKalanKoltuk.TabIndex = 26;
+            this.lbKalanKoltuk.Text = "Kalan Koltuk";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::KingsTP.Properties.Resources.oto;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlSeferUst);
@@ -346,7 +374,6 @@
         private System.Windows.Forms.DateTimePicker dtDonusTarih;
         private System.Windows.Forms.Button btnListele;
         private System.Windows.Forms.Label lbFiyat;
-        private System.Windows.Forms.Label lbKalanKoltuk;
         private System.Windows.Forms.Label lbVaris;
         private System.Windows.Forms.Label lbKalkis;
         private System.Windows.Forms.Panel pnlSeferler;
@@ -358,5 +385,6 @@
         private System.Windows.Forms.Panel pnlBilgiler;
         private System.Windows.Forms.Panel pnlSeferUst;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lbKalanKoltuk;
     }
 }
