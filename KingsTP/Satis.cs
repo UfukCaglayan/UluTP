@@ -31,7 +31,7 @@ namespace KingsTP
 
         public DataTable SeferGetir()
         {
-            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT (SELECT TerminalAdi FROM tblTerminaller WHERE ID = KalkisTerminalID) AS KalkisTerminal,(SELECT TerminalAdi FROM tblTerminaller WHERE ID = VarisTerminalID) AS VarisTerminal,TarihSaat,HareketSuresi,KalanKoltuk,CONVERT(INT, FLOOR(Fiyat)),S.ID,KoltukTuru FROM tblSeferler S INNER JOIN tblOtobusler O ON S.OtobusID = O.ID INNER JOIN tblKoltukTurleri KT ON O.KoltukTuruID = KT.ID WHERE KalkisTerminalID = @param1 AND VarisTerminalID = @param2 AND CONVERT(DATE, TarihSaat) = @param3", new SqlParameter[] { new SqlParameter("param1", this.kalkisID), new SqlParameter("param2", this.varisID), new SqlParameter("param3", this.tarih) });
+            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT (SELECT TerminalAdi FROM tblTerminaller WHERE ID = KalkisTerminalID) AS KalkisTerminal,(SELECT TerminalAdi FROM tblTerminaller WHERE ID = VarisTerminalID) AS VarisTerminal,GidisZaman,HareketSuresi,KalanKoltuk,CONVERT(INT, FLOOR(Fiyat)),S.ID,KoltukTuru FROM tblSeferler S INNER JOIN tblOtobusler O ON S.OtobusID = O.ID INNER JOIN tblKoltukTurleri KT ON O.KoltukTuruID = KT.ID WHERE KalkisTerminalID = @param1 AND VarisTerminalID = @param2 AND CONVERT(DATE, GidisZaman) = @param3", new SqlParameter[] { new SqlParameter("param1", this.kalkisID), new SqlParameter("param2", this.varisID), new SqlParameter("param3", this.tarih) });
             return dt;
         }
         public DataTable TerminalDoldur()
