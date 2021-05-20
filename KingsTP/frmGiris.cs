@@ -33,11 +33,8 @@ namespace KingsTP
                 else
                 {
                     GirisBilgileri.KullaniciID = id;
+                    GirisBilgileri.AdSoyad = giris.getAdSoyad();
                     frmMain main = new frmMain();
-                    main.lbAdSoyad.Text = "Hoş Geldin " + giris.getAdSoyad();
-                    main.lbGecmis.Text = "Geçmiş Rezerve";
-                    main.btnGiris.Text = "Çıkış";
-                    main.btnKayit.Visible = false;
                     main.Show();
                     this.Close();
                 }

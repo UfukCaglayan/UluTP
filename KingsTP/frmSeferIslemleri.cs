@@ -30,29 +30,34 @@ namespace KingsTP
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            string tarih = dtTarih.Value.ToString("yyyy-MM-dd");
-            string saat = txtSaat.Text + ":" + txtDakika.Text;
-            string tarihSaat = tarih + " " + saat;
-            MessageBox.Show(tarihSaat);
+            string gidisTarih = dtGidisTarih.Value.ToString("yyyy-MM-dd");
+            string gidisSaat = txtGidisSaat.Text + ":" + txtGidisDakika.Text;
+            string gidisTarihSaat = gidisTarih + " " + gidisSaat;
 
+            string donusTarih = dtDonusTarih.Value.ToString("yyyy-MM-dd");
+            string donusSaat = txtDonusSaat.Text + ":" + txtDonusDakika.Text;
+            string donusTarihSaat = donusTarih + " " + donusSaat;
 
-          
+            int otobusID = Convert.ToInt32(cmbOtobus.SelectedValue);
+
+            int kalanKoltuk = MSSQLDataConnection.SelectIntFromDB("SELECT KoltukSayisi FROM tblKoltukTurleri KT INNER JOIN tblOtobusler O ON KT.ID = O.KoltukTuruID WHERE O.ID = @param1", new SqlParameter[] { new SqlParameter("param1", otobusID) });
+
         }
 
         private void nupSaat_ValueChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(nupSaat.Value.ToString()) < 10)
-                txtSaat.Text = "0" + nupSaat.Value;
+            if (Convert.ToInt32(nupGidisSaat.Value.ToString()) < 10)
+                txtGidisSaat.Text = "0" + nupGidisSaat.Value;
             else
-                txtSaat.Text = nupSaat.Value.ToString();
+                txtGidisSaat.Text = nupGidisSaat.Value.ToString();
         }
 
         private void nupDakika_ValueChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(nupDakika.Value.ToString()) < 10)
-                txtDakika.Text = "0" + nupDakika.Value;
+            if (Convert.ToInt32(nupGidisDakika.Value.ToString()) < 10)
+                txtGidisDakika.Text = "0" + nupGidisDakika.Value;
             else
-                txtDakika.Text = nupDakika.Value.ToString();
+                txtGidisDakika.Text = nupGidisDakika.Value.ToString();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -63,6 +68,22 @@ namespace KingsTP
         private void btnTemizle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void nupDonusSaat_ValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(nupDonusSaat.Value.ToString()) < 10)
+                txtDonusSaat.Text = "0" + nupDonusSaat.Value;
+            else
+                txtDonusSaat.Text = nupDonusSaat.Value.ToString();
+        }
+
+        private void nupDonusDakika_ValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(nupDonusDakika.Value.ToString()) < 10)
+                txtDonusDakika.Text = "0" + nupDonusDakika.Value;
+            else
+                txtDonusDakika.Text = nupDonusDakika.Value.ToString();
         }
     }
 }

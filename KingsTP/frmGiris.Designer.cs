@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnGiris = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtSifre
@@ -83,6 +84,7 @@
             // 
             // btnGiris
             // 
+            this.btnGiris.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGiris.Location = new System.Drawing.Point(236, 153);
             this.btnGiris.Name = "btnGiris";
@@ -92,11 +94,25 @@
             this.btnGiris.UseVisualStyleBackColor = true;
             this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(12, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 18);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "ANASAYFA";
+            // 
             // frmGiris
             // 
+            this.AcceptButton = this.btnGiris;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 249);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnGiris);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtSifre);
@@ -120,5 +136,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnGiris;
+        private System.Windows.Forms.Label label7;
     }
 }

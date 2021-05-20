@@ -36,12 +36,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSifre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTelefon = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnKayitOl = new System.Windows.Forms.Button();
             this.txtSifreTekrar = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.msbTelefon = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -99,6 +100,7 @@
             // 
             this.txtSifre.Location = new System.Drawing.Point(204, 210);
             this.txtSifre.Name = "txtSifre";
+            this.txtSifre.PasswordChar = '*';
             this.txtSifre.Size = new System.Drawing.Size(186, 22);
             this.txtSifre.TabIndex = 5;
             // 
@@ -111,13 +113,6 @@
             this.label3.Size = new System.Drawing.Size(52, 25);
             this.label3.TabIndex = 6;
             this.label3.Text = "Şifre";
-            // 
-            // txtTelefon
-            // 
-            this.txtTelefon.Location = new System.Drawing.Point(204, 141);
-            this.txtTelefon.Name = "txtTelefon";
-            this.txtTelefon.Size = new System.Drawing.Size(186, 22);
-            this.txtTelefon.TabIndex = 3;
             // 
             // label4
             // 
@@ -141,6 +136,7 @@
             // 
             // btnKayitOl
             // 
+            this.btnKayitOl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnKayitOl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKayitOl.Location = new System.Drawing.Point(279, 290);
             this.btnKayitOl.Name = "btnKayitOl";
@@ -154,6 +150,7 @@
             // 
             this.txtSifreTekrar.Location = new System.Drawing.Point(204, 247);
             this.txtSifreTekrar.Name = "txtSifreTekrar";
+            this.txtSifreTekrar.PasswordChar = '*';
             this.txtSifreTekrar.Size = new System.Drawing.Size(186, 22);
             this.txtSifreTekrar.TabIndex = 6;
             // 
@@ -167,16 +164,38 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Şifre (Tekrar)";
             // 
+            // msbTelefon
+            // 
+            this.msbTelefon.Location = new System.Drawing.Point(204, 141);
+            this.msbTelefon.Mask = "(999) 000-00-00";
+            this.msbTelefon.Name = "msbTelefon";
+            this.msbTelefon.Size = new System.Drawing.Size(186, 22);
+            this.msbTelefon.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(12, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 18);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "ANASAYFA";
+            // 
             // frmKayit
             // 
+            this.AcceptButton = this.btnKayitOl;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 373);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.msbTelefon);
             this.Controls.Add(this.txtSifreTekrar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnKayitOl);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSifre);
             this.Controls.Add(this.label3);
@@ -205,11 +224,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSifre;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnKayitOl;
         private System.Windows.Forms.TextBox txtSifreTekrar;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MaskedTextBox msbTelefon;
+        private System.Windows.Forms.Label label7;
     }
 }

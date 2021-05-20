@@ -9,5 +9,7 @@ namespace KingsTP
     public static class GirisBilgileri
     {
         public static int KullaniciID = -1;
+
+        public static string AdSoyad = "";
     }
 }

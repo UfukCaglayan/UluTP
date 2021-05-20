@@ -27,6 +27,14 @@ namespace KingsTP
             cmbVaris.DataSource = dtVaris;
             dtDonusTarih.Enabled = false;
             pnlSeferUst.Visible = false;
+            if(GirisBilgileri.KullaniciID != -1)
+            {
+                
+                lbAdSoyad.Text = "Hoş Geldin " + GirisBilgileri.AdSoyad;
+                lbGecmis.Text = "Geçmiş Rezerve";
+                btnGiris.Text = "Çıkış";
+                btnKayit.Visible = false;
+            }
         }
 
 
