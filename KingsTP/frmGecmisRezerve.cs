@@ -22,7 +22,8 @@ namespace KingsTP
         {
             KoltukRezerve koltukRezerve = new KoltukRezerve();
             DataTable dt = koltukRezerve.GecmisRezerve(GirisBilgileri.KullaniciID);
-            for (int i = 0; i < dt.Rows.Count; i++)
+            int i = 0;
+            for (i = 0; i < dt.Rows.Count; i++)
             {
                 ucGecmisRezerve uc1 = new ucGecmisRezerve();
                 Label lbTCKimlikNo = uc1.Controls.Find("lbTCKimlikNo", true).FirstOrDefault() as Label;
@@ -35,9 +36,15 @@ namespace KingsTP
                 lbKoltukNo.Text = dt.Rows[i][3].ToString();
                 Label lbRezerveID = uc1.Controls.Find("lbRezerveID", true).FirstOrDefault() as Label;
                 lbRezerveID.Text = dt.Rows[i][4].ToString();
+                Label lbKalkis = uc1.Controls.Find("lbKalkis", true).FirstOrDefault() as Label;
+                lbKalkis.Text = dt.Rows[i][5].ToString();
+                Label lbVaris = uc1.Controls.Find("lbVaris", true).FirstOrDefault() as Label;
+                lbVaris.Text = dt.Rows[i][6].ToString();
                 uc1.Top = i * 75;
                 pnlGecmis.Controls.Add(uc1);
             }
+            pnlGecmis.Height = (i + 1) * 75 + 10;
+            this.Height = (i + 1) * 75 + 30;
         }
 
         private void lbMain_Click(object sender, EventArgs e)

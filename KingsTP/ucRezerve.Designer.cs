@@ -38,7 +38,7 @@
             // 
             this.lbKoltukNo.AutoSize = true;
             this.lbKoltukNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbKoltukNo.Location = new System.Drawing.Point(21, 28);
+            this.lbKoltukNo.Location = new System.Drawing.Point(21, 15);
             this.lbKoltukNo.Name = "lbKoltukNo";
             this.lbKoltukNo.Size = new System.Drawing.Size(97, 25);
             this.lbKoltukNo.TabIndex = 0;
@@ -46,26 +46,26 @@
             // 
             // txTCKimlikNo
             // 
-            this.txTCKimlikNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txTCKimlikNo.Location = new System.Drawing.Point(187, 25);
+            this.txTCKimlikNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txTCKimlikNo.Location = new System.Drawing.Point(187, 12);
             this.txTCKimlikNo.Name = "txTCKimlikNo";
-            this.txTCKimlikNo.Size = new System.Drawing.Size(128, 30);
+            this.txTCKimlikNo.Size = new System.Drawing.Size(128, 28);
             this.txTCKimlikNo.TabIndex = 2;
             // 
             // txtAd
             // 
-            this.txtAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtAd.Location = new System.Drawing.Point(411, 25);
+            this.txtAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtAd.Location = new System.Drawing.Point(411, 12);
             this.txtAd.Name = "txtAd";
-            this.txtAd.Size = new System.Drawing.Size(128, 30);
+            this.txtAd.Size = new System.Drawing.Size(128, 28);
             this.txtAd.TabIndex = 4;
             // 
             // txtSoyad
             // 
-            this.txtSoyad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoyad.Location = new System.Drawing.Point(628, 25);
+            this.txtSoyad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtSoyad.Location = new System.Drawing.Point(628, 12);
             this.txtSoyad.Name = "txtSoyad";
-            this.txtSoyad.Size = new System.Drawing.Size(128, 30);
+            this.txtSoyad.Size = new System.Drawing.Size(128, 28);
             this.txtSoyad.TabIndex = 6;
             // 
             // ucRezerve
@@ -78,7 +78,7 @@
             this.Controls.Add(this.txTCKimlikNo);
             this.Controls.Add(this.lbKoltukNo);
             this.Name = "ucRezerve";
-            this.Size = new System.Drawing.Size(810, 85);
+            this.Size = new System.Drawing.Size(810, 55);
             this.Load += new System.EventHandler(this.ucRezerve_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

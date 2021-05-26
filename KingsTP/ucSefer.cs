@@ -13,9 +13,11 @@ namespace KingsTP
 {
     public partial class ucSefer : UserControl
     {
+      
         public ucSefer()
         {
             InitializeComponent();
+            
         }
 
         private void ucSefer_Load(object sender, EventArgs e)
@@ -27,9 +29,8 @@ namespace KingsTP
         {
             if (GirisBilgileri.KullaniciID != -1)
             {
-                frmKoltukRezerve KT = new frmKoltukRezerve();
-                KT.Show();
-                KT.KoltukDoldur(Convert.ToInt32(lbSeferID.Text));
+                int ind = Convert.ToInt32(this.Name.Substring(3, 1));
+                ((frmMain)this.Parent.Parent.Parent).KoltukDoldur(Convert.ToInt32(lbSeferID.Text), ind);
             }
             else
                 MessageBox.Show("Önce giriş yapmalısınız");

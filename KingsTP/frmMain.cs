@@ -15,43 +15,202 @@ namespace KingsTP
     {
         public frmMain()
         {
+
             InitializeComponent();
         }
 
+        int seferID;
+        char gidisDonus;
+        int koltukNo = 0;
+        SingleLinkedList GidisKoltuklar;
+        SingleLinkedList DonusKoltuklar;
+        public void KoltukDoldur(int sefer, int h)
+        {
+            pnlOtobus.Controls.Clear();
+
+            int sag = 0, sol = 0;
+            seferID = sefer;
+            KoltukRezerve koltukRezerve = new KoltukRezerve();
+            int koltukTuru = koltukRezerve.KoltukTuruGetir(seferID);
+            if (koltukTuru == 1)
+            {
+                sag = 1;
+                sol = 1;
+            }
+            else if (koltukTuru == 2)
+            {
+                sag = 2;
+                sol = 1;
+            }
+            else if (koltukTuru == 3)
+            {
+                sag = 2;
+                sol = 2;
+            }
+            int sagSon = 0;
+            for (int i = 0; i < sag; i++)
+            {
+                for (int k = 1; k <= 20; k++)
+                {
+                    Button btnSag = new Button();
+                    btnSag.Width = 60;
+                    btnSag.Height = 50;
+                    btnSag.Location = new Point(75 + ((k - 1) * 65), 30 + (i * 55));
+                    string koltukText = "";
+                    if (sag == 2)
+                    {
+                        if (i == 0)
+                        {
+                            koltukText = (k * 2 - 1).ToString();
+                        }
+                        else if (i == 1)
+                        {
+                            koltukText = (k * 2).ToString();
+                        }
+                    }
+                    else if (sag == 1)
+                    {
+                        koltukText = k.ToString();
+                    }
+                    btnSag.Click += btnKoltuk_Click;
+                    btnSag.Text = koltukText;
+                    btnSag.Name = "btnKoltuk" + koltukText;
+                    btnSag.Image = UluTP.Properties.Resources.boskol;
+                    btnSag.BackgroundImageLayout = ImageLayout.Stretch;
+                    pnlOtobus.Controls.Add(btnSag);
+                }
+            }
+            sagSon = sag * 20;
+            for (int i = 0; i < sol; i++)
+            {
+                for (int k = 1; k <= 20; k++)
+                {
+                    Button btnSol = new Button();
+                    btnSol.Width = 60;
+                    btnSol.Height = 50;
+                    btnSol.Location = new Point(75 + ((k - 1) * 65), 170 + (i * 55));
+
+                    string koltukText = "";
+                    if (sol == 2)
+                    {
+                        if (i == 0)
+                        {
+                            koltukText = (k * 2 - 1 + sagSon).ToString();
+                        }
+                        else if (i == 1)
+                        {
+                            koltukText = (k * 2 + sagSon).ToString();
+                        }
+                    }
+                    else if (sol == 1)
+                    {
+                        koltukText = (sagSon + k).ToString();
+                    }
+                    btnSol.Click += btnKoltuk_Click;
+                    btnSol.Text = koltukText;
+                    btnSol.Name = "btnKoltuk" + koltukText;
+                    btnSol.Image = UluTP.Properties.Resources.boskol;
+                    btnSol.BackgroundImageLayout = ImageLayout.Stretch;
+                    pnlOtobus.Controls.Add(btnSol);
+                }
+                pnlOtobus.Visible = true;
+                pnlOtobus.Location = new Point(pnlOtobus.Location.X, pnlSeferler.Location.Y + (h + 1) * 70);
+
+                btnKapat.Location = new Point(pnlOtobus.Location.X + pnlOtobus.Width - 30, pnlOtobus.Location.Y + 5);
+                lbDonusSefer.Location = new Point(pnlOtobus.Location.X + 5, pnlOtobus.Location.Y + 5);
+                btnRezerve.Location = new Point(pnlOtobus.Location.X + pnlOtobus.Width - btnRezerve.Width - 20, pnlOtobus.Location.Y + pnlOtobus.Height - 37);
+                btnRezerve.Visible = true;
+                btnKapat.Visible = true;
+                lbDonusSefer.Visible = true;
+            }
+
+
+            DataTable dt = koltukRezerve.KoltukDoldur(seferID);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string koltuk = dt.Rows[i][0].ToString();
+                string cinsiyet = dt.Rows[i][1].ToString();
+                Button btnKoltuk = this.Controls.Find("btnKoltuk" + koltuk, true).FirstOrDefault() as Button;
+                if (cinsiyet == "E")
+                    btnKoltuk.Image = UluTP.Properties.Resources.erkek;
+                else
+                    btnKoltuk.Image = UluTP.Properties.Resources.kadin;
+
+                btnKoltuk.Enabled = false;
+            }
+        } 
+
+
+        private void btnKoltuk_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            koltukNo = Convert.ToInt32(btn.Text);
+            pnlCinsiyet.Location = new Point(pnlOtobus.Location.X + btn.Location.X - 40, pnlOtobus.Location.Y + btn.Location.Y - 62);
+            pnlCinsiyet.Visible = true;
+        }
+       
+
+        public void Giris(string adSoyad)
+        {
+            lbAdSoyad.Visible = true;
+            lbAdSoyad.Text = " Hoş Geldin\r\n " + adSoyad;
+            btnGiris.Text = "Çıkış";
+            btnKayit.Text = "Geçmiş Rezerve";
+            btnGiris.Location = new Point(10, 50);
+            btnKayit.Location = new Point(10, 90);
+            grpGiris.Height = 130;
+            btnKayit.Width = 190;
+            btnGiris.Width = 190;
+
+        }
         private void frmSatis_Load(object sender, EventArgs e)
         {
+            GidisKoltuklar = new SingleLinkedList();
+            DonusKoltuklar = new SingleLinkedList();
+            btnTamamla.Visible = false;
+            btnRezerve.Visible = false;
+            btnKapat.Visible = false;
+            lbDonusSefer.Visible = false;
+            gidisDonus = 'g';
             Satis satis = new Satis();
             DataTable dtKalkis = satis.TerminalDoldur();
             DataTable dtVaris = satis.TerminalDoldur();
+            rbTekYon.Checked = true;
             cmbKalkis.DataSource = dtKalkis;
             cmbVaris.DataSource = dtVaris;
             dtDonusTarih.Enabled = false;
             pnlSeferUst.Visible = false;
-            if(GirisBilgileri.KullaniciID != -1)
-            {
-                
-                lbAdSoyad.Text = "Hoş Geldin " + GirisBilgileri.AdSoyad;
-                lbGecmis.Text = "Geçmiş Rezerve";
-                btnGiris.Text = "Çıkış";
-                btnKayit.Visible = false;
-            }
+            dtGidisTarih.MinDate = DateTime.Now;
+            dtDonusTarih.MinDate = DateTime.Now;
+           
+            grpGiris.Width = 225;
+            grpGiris.Location = new Point(this.Width - 225, 0);
+            lbAdSoyad.Location = new Point(3, lbAdSoyad.Location.Y);
+            btnGiris.Location = new Point(30, 45);
+            btnKayit.Location = new Point(125, 45);
+            btnKayit.Width = 75;
+            btnGiris.Width = 75;
+
+            ucSefer uc1 = new ucSefer();
+            uc1.Top = 10;
+            this.Controls.Add(uc1);
+            pnlOtobus.Visible = false;
+            pnlCinsiyet.Visible = false;
+            pnlKoltukBilgiler.Visible = false;
+           
         }
 
-
-        private void btnListele_Click(object sender, EventArgs e)
+        
+        private void panelDoldur(DataTable dt)
         {
-            Satis satis = new Satis();
-            satis.setKalkisID(Convert.ToInt32(cmbKalkis.SelectedValue));
-            satis.setVarisID(Convert.ToInt32(cmbVaris.SelectedValue));
-            string kalkisTarih = dtGidisTarih.Value.ToString("yyyy-MM-dd");
-            satis.setTarih(kalkisTarih);
-            DataTable dt = satis.SeferGetir();
+            pnlSeferler.Controls.Clear();
             if (dt.Rows.Count > 0)
             {
-                pnlSeferUst.Visible = true;
-                for (int i = 0; i < dt.Rows.Count; i++)
+                int i = 0;
+                for (i = 0; i < dt.Rows.Count; i++)
                 {
                     ucSefer uc1 = new ucSefer();
+                    uc1.Name = "ucs" + i;
                     Label lbKalkisTerminal = uc1.Controls.Find("lbKalkisTerminal", true).FirstOrDefault() as Label;
                     lbKalkisTerminal.Text = dt.Rows[i][0].ToString();
                     Label lbVarisTerminal = uc1.Controls.Find("lbVarisTerminal", true).FirstOrDefault() as Label;
@@ -69,34 +228,165 @@ namespace KingsTP
                     Label lbKoltukTuru = uc1.Controls.Find("lbKoltukTuru", true).FirstOrDefault() as Label;
                     lbKoltukTuru.Text = dt.Rows[i][7].ToString();
                     uc1.Top = i * 70;
+
                     pnlSeferler.Controls.Add(uc1);
                 }
+                pnlSeferler.Height = i * 80;
             }
-          
+            else
+            {
+                
+                pnlSeferUst.Visible = false;
+                MessageBox.Show("Sefer Bulunamadı");
+            }
+        }
+
+        private void Listele()
+        {
+            Satis satis = new Satis();
+            string kalkisTarih = "";
+
+            if (gidisDonus == 'g')
+            {
+                satis.setKalkisID(Convert.ToInt32(cmbKalkis.SelectedValue));
+                satis.setVarisID(Convert.ToInt32(cmbVaris.SelectedValue));
+                kalkisTarih = dtGidisTarih.Value.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+
+                pnlOtobus.Visible = false;
+                satis.setKalkisID(Convert.ToInt32(cmbVaris.SelectedValue));
+                satis.setVarisID(Convert.ToInt32(cmbKalkis.SelectedValue));
+                kalkisTarih = dtDonusTarih.Value.ToString("yyyy-MM-dd");
+
+
+               
+            }
+
+            satis.setTarih(kalkisTarih);
+            DataTable dt = new DataTable();
+            dt = satis.SeferGetir();
+            panelDoldur(dt);
+
+
+        }
+
+        private void btnListele_Click(object sender, EventArgs e)
+        {
+            if (cmbKalkis.SelectedValue.ToString() != cmbVaris.SelectedValue.ToString())
+            {
+                pnlSeferler.Controls.Clear();
+                gidisDonus = 'g';
+                pnlOtobus.Visible = false;
+                GidisKoltuklar = new SingleLinkedList();
+                DonusKoltuklar = new SingleLinkedList();
+                btnKapat.Visible = false;
+                btnRezerve.Visible = false;
+                lbDonusSefer.Visible = false;
+
+                pnlSeferUst.Location = new Point(pnlSeferler.Location.X, grpSefer.Location.Y + grpSefer.Height + 5);
+                pnlSeferler.Location = new Point(pnlSeferler.Location.X, grpSefer.Location.Y + grpSefer.Height + pnlSeferUst.Height + 15);
+                pnlSeferUst.Visible = true;
+                if (rbGidisDonus.Checked)
+                {
+                    if (dtDonusTarih.Value > dtGidisTarih.Value)
+                    {
+                        lbDonusSefer.Text = "Gidiş Yolculuğu";
+                        btnRezerve.Text = "Dönüş Yolculuğu";
+                        Listele();
+                    }
+                    else
+                        MessageBox.Show("Dönüş tarihi Gidiş tarihinden ileride olmalıdır");
+                }
+                else
+                {
+                    lbDonusSefer.Visible = false;
+                    lbDonusSefer.Text = "";
+                    Listele();
+                }
+            }
+            else
+                MessageBox.Show("Kalkış terminaliyle Varış terminali farklı olmalıdır");
+
         }
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmKayit kayit = new frmKayit();
-            kayit.Show();
+            if (btnKayit.Text == "Kayıt")
+            {
+                frmKayit kayit = new frmKayit();
+                kayit.Owner = this;
+                kayit.Show();
+            }
+            else
+            {
+                frmGecmisRezerve gecmisRezerve = new frmGecmisRezerve();
+                gecmisRezerve.Owner = this;
+                gecmisRezerve.Show();
+            }
         }
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
             if (btnGiris.Text == "Giriş")
             {
-                this.Hide();
                 frmGiris giris = new frmGiris();
+                giris.Owner = this;
                 giris.Show();
             }
             else
             {
                 btnGiris.Text = "Giriş";
+                btnKayit.Text = "Kayıt";
+                lbAdSoyad.Text = "";
+                lbAdSoyad.Visible = false;
                 GirisBilgileri.KullaniciID = -1;
-                pnlBilgiler.Visible = false;
                 btnKayit.Visible = true;
+                grpGiris.Height = 120;
+                btnGiris.Location = new Point(30, 45);
+                btnKayit.Location = new Point(125, 45);
+                btnKayit.Width = 75;
+                btnGiris.Width = 75;
+                btnKapat.Visible = false;
+                btnRezerve.Visible = false;
+                lbDonusSefer.Visible = false;
+                gidisDonus = 'g';
             }
+        }
+
+        private void btnSecim_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            char cinsiyet = Convert.ToChar(btn.Text);
+            HelperSLL objHelper = new HelperSLL();
+            if (rbGidisDonus.Checked)
+            {
+                if (gidisDonus == 'g')
+                {
+                    objHelper.DeleteNodebyKey(GidisKoltuklar, koltukNo);
+                    objHelper.InsertLast(GidisKoltuklar, seferID, koltukNo, cinsiyet);
+                }
+                else
+                {
+                    objHelper.DeleteNodebyKey(DonusKoltuklar, koltukNo);
+                    objHelper.InsertLast(DonusKoltuklar, seferID, koltukNo, cinsiyet);
+                }
+            }
+            else
+            {
+                objHelper.DeleteNodebyKey(GidisKoltuklar, koltukNo);
+                objHelper.InsertLast(GidisKoltuklar, seferID, koltukNo, cinsiyet);
+            }
+            string btnName = "btnKoltuk" + koltukNo;
+            Button btnKoltuk = this.Controls.Find(btnName, true).FirstOrDefault() as Button;
+            if(btn.Name == "btnErkek")
+                btnKoltuk.Image = UluTP.Properties.Resources.erkek;
+            else
+                btnKoltuk.Image = UluTP.Properties.Resources.kadin;
+
+            btnKoltuk.BackgroundImageLayout = ImageLayout.Stretch;
+            pnlCinsiyet.Visible = false;
         }
 
         private void lbGecmis_Click(object sender, EventArgs e)
@@ -115,5 +405,160 @@ namespace KingsTP
         {
             dtDonusTarih.Enabled = true;
         }
+
+       
+        int sayac = 0;
+     
+        private void rezerveDoldur(SingleLinkedList list,int top)
+        {
+            Node iter = list.head;
+            while (iter != null)
+            {
+                ucRezerve uc1 = new ucRezerve();
+                uc1.Name = "ucRezerve" + sayac;
+                Label lbKoltukNo = uc1.Controls.Find("lbKoltukNo", true).FirstOrDefault() as Label;
+                lbKoltukNo.Text = iter.koltuk.ToString();
+                uc1.Top = sayac * 55 + top;
+
+                pnlKoltukBilgiler.Controls.Add(uc1);
+
+                sayac++;
+                iter = iter.next;
+               
+            }
+           
+            pnlKoltukBilgiler.Visible = true;
+            pnlOtobus.Visible = false;
+            btnKapat.Visible = false;
+            lbDonusSefer.Visible = false;
+            btnRezerve.Visible = false;
+
+        }
+        private void Rezerve()
+        {
+            pnlKoltukBilgiler.Location = new Point(pnlKoltukBilgiler.Location.X, 200);
+            if (rbGidisDonus.Checked == false)
+            {
+                rezerveDoldur(GidisKoltuklar,30);
+                pnlKoltukBilgiler.Height = sayac * 55 + btnTamamla.Height + 50;
+            }
+            else
+            {
+                Label lblGidis = new Label();
+                lblGidis.Top = sayac * 80 + 40;
+                lblGidis.Left = 10;
+                lblGidis.Text = "Gidiş Yolculuğu";
+                pnlKoltukBilgiler.Controls.Add(lblGidis);
+              
+                rezerveDoldur(GidisKoltuklar,50);
+             
+                Label lblDonus = new Label();
+                lblDonus.Left = 10;
+                lblDonus.Top = sayac * 55 + 45;
+                lblDonus.Text = "Dönüş Yolculuğu";
+                pnlKoltukBilgiler.Controls.Add(lblDonus);
+                rezerveDoldur(DonusKoltuklar,60);
+                pnlKoltukBilgiler.Height = (sayac + 1) * 55 + btnTamamla.Height + 30;
+               
+            }
+            btnTamamla.Location = new Point(pnlKoltukBilgiler.Location.X + pnlKoltukBilgiler.Width - btnTamamla.Width - 35, pnlKoltukBilgiler.Location.Y + pnlKoltukBilgiler.Height - btnTamamla.Height - 10);
+            btnTamamla.Visible = true;
+
+
+        }
+
+        
+        private void btnRezerve_Click(object sender, EventArgs e)
+        {
+            if (rbGidisDonus.Checked)
+            {
+                if (gidisDonus == 'g')
+                {
+                    gidisDonus = 'd';
+                    Listele();
+                    btnRezerve.Text = "Rezerve Et";
+                    lbDonusSefer.Text = "Dönüş Yolculuğu";
+                    btnKapat.Visible = false;
+                    lbDonusSefer.Visible = false;
+                    btnRezerve.Visible = false;
+                }
+                else
+                    Rezerve();
+            }
+            else
+                Rezerve();
+        }
+
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            pnlOtobus.Visible = false;
+            btnKapat.Visible = false;
+            lbDonusSefer.Visible = false;
+            btnRezerve.Visible = false;
+            pnlCinsiyet.Visible = false;
+        }
+
+        int kSayac = 0;
+
+        private void RezerveEt(SingleLinkedList list)
+        {
+            KoltukRezerve koltukRezerve = new KoltukRezerve();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("SeferID", typeof(int));
+            dt.Columns.Add("KoltukID", typeof(int));
+            dt.Columns.Add("TCKimlikNo", typeof(string));
+            dt.Columns.Add("Ad", typeof(string));
+            dt.Columns.Add("Soyad", typeof(string));
+            dt.Columns.Add("Cinsiyet", typeof(string));
+            dt.Columns.Add("UyeID", typeof(string));
+
+            Node iter = list.head;
+            int sID = iter.seferID;
+            while (iter != null)
+            {
+                UserControl uc = this.Controls.Find("ucRezerve" + kSayac, true).FirstOrDefault() as UserControl;
+                TextBox txTCKimlikNo = uc.Controls.Find("txTCKimlikNo", true).FirstOrDefault() as TextBox;
+                TextBox txtAd = uc.Controls.Find("txtAd", true).FirstOrDefault() as TextBox;
+                TextBox txtSoyad = uc.Controls.Find("txtSoyad", true).FirstOrDefault() as TextBox;
+                dt.Rows.Add(sID, iter.koltuk, txTCKimlikNo.Text, txtAd.Text, txtSoyad.Text, iter.cinsiyet, GirisBilgileri.KullaniciID);
+                kSayac++;
+                iter = iter.next;
+            }
+            koltukRezerve.RezerveEt(dt);
+            Sefer sefer = new Sefer();
+            sefer.KoltukAzalt(sID, sayac);
+        }
+
+        private void btnTamamla_Click(object sender, EventArgs e)
+        {
+            RezerveEt(GidisKoltuklar);
+            if(rbGidisDonus.Checked)
+                RezerveEt(DonusKoltuklar);
+
+            pnlOtobus.Visible = false;
+            MessageBox.Show("İşlem Başarıyla Tamamlandı");
+
+           
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            pnlCinsiyet.Visible = false;
+            string btnName = "btnKoltuk" + koltukNo;
+            Button btnKoltuk = this.Controls.Find(btnName, true).FirstOrDefault() as Button;
+            btnKoltuk.Image = UluTP.Properties.Resources.boskol;
+            HelperSLL objHelper = new HelperSLL();
+            if (rbGidisDonus.Checked)
+            {
+                if (gidisDonus == 'g')
+                    objHelper.DeleteNodebyKey(GidisKoltuklar, koltukNo);
+                else
+                    objHelper.DeleteNodebyKey(DonusKoltuklar, koltukNo);
+            }
+            else
+                objHelper.DeleteNodebyKey(GidisKoltuklar, koltukNo);
+        }
+
+      
     }
 }

@@ -39,6 +39,8 @@
             this.lbKalkis = new System.Windows.Forms.Label();
             this.lbVaris = new System.Windows.Forms.Label();
             this.lbKalanKoltuk = new System.Windows.Forms.Label();
+            this.btnDonus = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlCinsiyet.SuspendLayout();
             this.pnlRezerveUst.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +96,7 @@
             // 
             this.btnOdeme.Location = new System.Drawing.Point(1573, 396);
             this.btnOdeme.Name = "btnOdeme";
-            this.btnOdeme.Size = new System.Drawing.Size(134, 35);
+            this.btnOdeme.Size = new System.Drawing.Size(169, 35);
             this.btnOdeme.TabIndex = 4;
             this.btnOdeme.Text = "Ödeme";
             this.btnOdeme.UseVisualStyleBackColor = true;
@@ -152,14 +154,33 @@
             this.lbKalanKoltuk.TabIndex = 26;
             this.lbKalanKoltuk.Text = "Ad";
             // 
+            // btnDonus
+            // 
+            this.btnDonus.Location = new System.Drawing.Point(1573, 445);
+            this.btnDonus.Name = "btnDonus";
+            this.btnDonus.Size = new System.Drawing.Size(169, 35);
+            this.btnDonus.TabIndex = 35;
+            this.btnDonus.Text = "Dönüş Yolculuğunu Seç";
+            this.btnDonus.UseVisualStyleBackColor = true;
+            this.btnDonus.Click += new System.EventHandler(this.btnDonus_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(214, 60);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1600, 304);
+            this.panel1.TabIndex = 36;
+            // 
             // frmKoltukRezerve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = global::KingsTP.Properties.Resources.bright_road;
+            this.BackgroundImage = global::UluTP.Properties.Resources.bright_road;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnDonus);
             this.Controls.Add(this.pnlRezerveUst);
             this.Controls.Add(this.btnOdeme);
             this.Controls.Add(this.btnRezerve);
@@ -190,5 +211,7 @@
         private System.Windows.Forms.Label lbKalkis;
         private System.Windows.Forms.Label lbVaris;
         private System.Windows.Forms.Label lbKalanKoltuk;
+        private System.Windows.Forms.Button btnDonus;
+        private System.Windows.Forms.Panel panel1;
     }
 }
