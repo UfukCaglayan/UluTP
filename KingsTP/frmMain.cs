@@ -26,8 +26,20 @@ namespace KingsTP
         SingleLinkedList DonusKoltuklar;
         public void KoltukDoldur(int sefer, int h)
         {
-            pnlOtobus.Controls.Clear();
+            if (rbGidisDonus.Checked)
+            {
+                if (gidisDonus == 'g')
+                {
+                    if(GidisKoltuklar.head != null)
+                        GidisKoltuklar = new SingleLinkedList();
+                }
+                else
+                    DonusKoltuklar = new SingleLinkedList();
+            }
+            else
+                GidisKoltuklar = new SingleLinkedList();
 
+            pnlOtobus.Controls.Clear();
             int sag = 0, sol = 0;
             seferID = sefer;
             KoltukRezerve koltukRezerve = new KoltukRezerve();
@@ -114,7 +126,12 @@ namespace KingsTP
                     pnlOtobus.Controls.Add(btnSol);
                 }
                 pnlOtobusUst.Visible = true;
-                pnlOtobusUst.Location = new Point(pnlOtobusUst.Location.X, pnlSeferler.Location.Y + (h + 1) * 70);
+                UserControl ucs = this.Controls.Find("ucs" + h, true).FirstOrDefault() as UserControl;
+                int konumY = ucs.Location.Y + pnlOtobusUst.Height + 15;
+                if(konumY < this.Height - pnlOtobusUst.Height - 20)
+                    pnlOtobusUst.Location = new Point(pnlOtobusUst.Location.X, konumY);
+                else
+                    pnlOtobusUst.Location = new Point(pnlOtobusUst.Location.X, ucs.Location.Y - 60);
             }
 
 
@@ -149,8 +166,8 @@ namespace KingsTP
             lbAdSoyad.Text = " Hoş Geldin\r\n " + adSoyad;
             btnGiris.Text = "Çıkış";
             btnKayit.Text = "Geçmiş Rezerve";
-            btnGiris.Location = new Point(10, 50);
-            btnKayit.Location = new Point(10, 90);
+            btnKayit.Location = new Point(10, 50);
+            btnGiris.Location = new Point(10, 90);
             grpGiris.Height = 130;
             btnKayit.Width = 190;
             btnGiris.Width = 190;
@@ -178,10 +195,6 @@ namespace KingsTP
             btnKayit.Location = new Point(125, 45);
             btnKayit.Width = 75;
             btnGiris.Width = 75;
-
-            ucSefer uc1 = new ucSefer();
-            uc1.Top = 10;
-            this.Controls.Add(uc1);
             pnlOtobusUst.Visible = false;
             pnlCinsiyet.Visible = false;
             pnlKoltukBilgiler.Visible = false;
@@ -223,9 +236,8 @@ namespace KingsTP
             }
             else
             {
-                
                 pnlSeferUst.Visible = false;
-                MessageBox.Show("Sefer Bulunamadı");
+                MessageBox.Show("Sefer bulunamadı", "Sefer İşlemi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -279,7 +291,7 @@ namespace KingsTP
                         Listele();
                     }
                     else
-                        MessageBox.Show("Dönüş tarihi Gidiş tarihinden ileride olmalıdır");
+                        MessageBox.Show("Dönüş tarihi Gidiş tarihinden ileride olmalıdır", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -289,7 +301,7 @@ namespace KingsTP
                 }
             }
             else
-                MessageBox.Show("Kalkış terminaliyle Varış terminali farklı olmalıdır");
+                MessageBox.Show("Kalkış terminaliyle Varış terminali farklı olmalıdır", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -453,7 +465,6 @@ namespace KingsTP
                     Listele();
                     btnRezerve.Text = "Rezerve Et";
                     lbDonusSefer.Text = "Dönüş Yolculuğu";
-                   
                 }
                 else
                     Rezerve();
@@ -505,10 +516,10 @@ namespace KingsTP
                 RezerveEt(DonusKoltuklar);
 
             pnlOtobusUst.Visible = false;
-            pnlBilgiler.Visible = false;
-            MessageBox.Show("İşlem Başarıyla Tamamlandı");
-            
-           
+            pnlKoltukBilgiler.Visible = false;
+            MessageBox.Show("İşlem başarıyla tamamlandı", "Koltuk Rezerve", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+
         }
 
         private void btnSil_Click(object sender, EventArgs e)

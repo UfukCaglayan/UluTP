@@ -130,8 +130,14 @@
   <data name="asdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\asdf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ulutp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ulutp.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kings.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bright-road" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bright-road.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +166,8 @@
   <data name="oto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\oto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="erkek" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\erkek.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sofor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sofor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="snacks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snacks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,13 +178,13 @@
   <data name="kayit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kayit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kings.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="erkek" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\erkek.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="boskoltuk" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boskoltuk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sofor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sofor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ulutplogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ulutplogo.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -43,7 +43,7 @@ namespace KingsTP
                     MessageBox.Show("E Mail adresini veya şifreyi yanlış girdiniz");
             }
             else
-                MessageBox.Show("E Mail adresinizi ve Şifrenizi boş girmeyiniz");
+                MessageBox.Show("E Mail adresinizi ve şifrenizi boş girmeyiniz");
         }
     }
 }

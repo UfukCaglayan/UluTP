@@ -127,9 +127,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::UluTP.Properties.Resources.bright_road;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1218, 1033);
+            this.ClientSize = new System.Drawing.Size(1217, 1033);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlGecmis);
+            this.MaximizeBox = false;
             this.Name = "frmGecmisRezerve";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Geçmiş Rezerve";

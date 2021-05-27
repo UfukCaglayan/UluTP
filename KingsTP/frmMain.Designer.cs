@@ -87,7 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScrollMargin = new System.Drawing.Size(0, 100);
-            this.panel1.BackgroundImage = global::UluTP.Properties.Resources.son2;
+            this.panel1.BackgroundImage = global::UluTP.Properties.Resources.ulutplogo;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.pnlKoltukBilgiler);
             this.panel1.Controls.Add(this.pnlCinsiyet);
