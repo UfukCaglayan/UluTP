@@ -29,21 +29,25 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbDonusSefer = new System.Windows.Forms.Label();
-            this.btnRezerve = new System.Windows.Forms.Button();
-            this.btnKapat = new System.Windows.Forms.Button();
-            this.btnTamamla = new System.Windows.Forms.Button();
             this.pnlKoltukBilgiler = new System.Windows.Forms.Panel();
+            this.pnlBilgiler = new System.Windows.Forms.Panel();
             this.pnlRezerveUst = new System.Windows.Forms.Panel();
+            this.btnBilgiKapat = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnTamamla = new System.Windows.Forms.Button();
             this.pnlCinsiyet = new System.Windows.Forms.Panel();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnKadin = new System.Windows.Forms.Button();
             this.btnErkek = new System.Windows.Forms.Button();
+            this.pnlOtobusUst = new System.Windows.Forms.Panel();
+            this.pbSofor = new System.Windows.Forms.PictureBox();
             this.pnlOtobus = new System.Windows.Forms.Panel();
+            this.btnRezerve = new System.Windows.Forms.Button();
+            this.lbDonusSefer = new System.Windows.Forms.Label();
+            this.btnKapat = new System.Windows.Forms.Button();
             this.grpSefer = new System.Windows.Forms.GroupBox();
             this.rbTekYon = new System.Windows.Forms.RadioButton();
             this.rbGidisDonus = new System.Windows.Forms.RadioButton();
@@ -52,7 +56,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnListele = new System.Windows.Forms.Button();
             this.cmbVaris = new System.Windows.Forms.ComboBox();
-            this.lbDonus = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.dtGidisTarih = new System.Windows.Forms.DateTimePicker();
             this.dtDonusTarih = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -70,6 +74,8 @@
             this.pnlKoltukBilgiler.SuspendLayout();
             this.pnlRezerveUst.SuspendLayout();
             this.pnlCinsiyet.SuspendLayout();
+            this.pnlOtobusUst.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSofor)).BeginInit();
             this.grpSefer.SuspendLayout();
             this.pnlSeferUst.SuspendLayout();
             this.grpGiris.SuspendLayout();
@@ -80,83 +86,46 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.AutoScroll = true;
+            this.panel1.AutoScrollMargin = new System.Drawing.Size(0, 100);
             this.panel1.BackgroundImage = global::UluTP.Properties.Resources.son2;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.lbDonusSefer);
-            this.panel1.Controls.Add(this.btnRezerve);
-            this.panel1.Controls.Add(this.btnKapat);
-            this.panel1.Controls.Add(this.btnTamamla);
             this.panel1.Controls.Add(this.pnlKoltukBilgiler);
             this.panel1.Controls.Add(this.pnlCinsiyet);
-            this.panel1.Controls.Add(this.pnlOtobus);
+            this.panel1.Controls.Add(this.pnlOtobusUst);
             this.panel1.Controls.Add(this.grpSefer);
             this.panel1.Controls.Add(this.pnlSeferUst);
             this.panel1.Controls.Add(this.grpGiris);
             this.panel1.Controls.Add(this.pnlSeferler);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1920, 1035);
+            this.panel1.Size = new System.Drawing.Size(1920, 1080);
             this.panel1.TabIndex = 0;
-            // 
-            // lbDonusSefer
-            // 
-            this.lbDonusSefer.AutoSize = true;
-            this.lbDonusSefer.BackColor = System.Drawing.SystemColors.Control;
-            this.lbDonusSefer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbDonusSefer.Location = new System.Drawing.Point(57, 1043);
-            this.lbDonusSefer.Name = "lbDonusSefer";
-            this.lbDonusSefer.Size = new System.Drawing.Size(59, 25);
-            this.lbDonusSefer.TabIndex = 1;
-            this.lbDonusSefer.Text = "Sefer";
-            // 
-            // btnRezerve
-            // 
-            this.btnRezerve.BackColor = System.Drawing.Color.White;
-            this.btnRezerve.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnRezerve.Location = new System.Drawing.Point(12, 1041);
-            this.btnRezerve.Name = "btnRezerve";
-            this.btnRezerve.Size = new System.Drawing.Size(212, 34);
-            this.btnRezerve.TabIndex = 0;
-            this.btnRezerve.Text = "Rezerve Et";
-            this.btnRezerve.UseVisualStyleBackColor = false;
-            this.btnRezerve.Click += new System.EventHandler(this.btnRezerve_Click);
-            // 
-            // btnKapat
-            // 
-            this.btnKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnKapat.Location = new System.Drawing.Point(167, 1041);
-            this.btnKapat.Name = "btnKapat";
-            this.btnKapat.Size = new System.Drawing.Size(27, 26);
-            this.btnKapat.TabIndex = 44;
-            this.btnKapat.Text = "x";
-            this.btnKapat.UseVisualStyleBackColor = true;
-            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
-            // 
-            // btnTamamla
-            // 
-            this.btnTamamla.BackColor = System.Drawing.Color.White;
-            this.btnTamamla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnTamamla.Location = new System.Drawing.Point(122, 1041);
-            this.btnTamamla.Name = "btnTamamla";
-            this.btnTamamla.Size = new System.Drawing.Size(135, 36);
-            this.btnTamamla.TabIndex = 48;
-            this.btnTamamla.Text = "TAMAMLA";
-            this.btnTamamla.UseVisualStyleBackColor = false;
-            this.btnTamamla.Click += new System.EventHandler(this.btnTamamla_Click);
             // 
             // pnlKoltukBilgiler
             // 
             this.pnlKoltukBilgiler.BackColor = System.Drawing.Color.White;
+            this.pnlKoltukBilgiler.Controls.Add(this.pnlBilgiler);
             this.pnlKoltukBilgiler.Controls.Add(this.pnlRezerveUst);
-            this.pnlKoltukBilgiler.Location = new System.Drawing.Point(555, 1041);
+            this.pnlKoltukBilgiler.Controls.Add(this.btnTamamla);
+            this.pnlKoltukBilgiler.Location = new System.Drawing.Point(555, 1083);
             this.pnlKoltukBilgiler.Name = "pnlKoltukBilgiler";
-            this.pnlKoltukBilgiler.Size = new System.Drawing.Size(810, 554);
+            this.pnlKoltukBilgiler.Size = new System.Drawing.Size(810, 555);
             this.pnlKoltukBilgiler.TabIndex = 47;
+            // 
+            // pnlBilgiler
+            // 
+            this.pnlBilgiler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlBilgiler.BackColor = System.Drawing.Color.White;
+            this.pnlBilgiler.Location = new System.Drawing.Point(2, 37);
+            this.pnlBilgiler.Name = "pnlBilgiler";
+            this.pnlBilgiler.Size = new System.Drawing.Size(805, 475);
+            this.pnlBilgiler.TabIndex = 37;
             // 
             // pnlRezerveUst
             // 
             this.pnlRezerveUst.BackColor = System.Drawing.Color.White;
+            this.pnlRezerveUst.Controls.Add(this.btnBilgiKapat);
             this.pnlRezerveUst.Controls.Add(this.label5);
             this.pnlRezerveUst.Controls.Add(this.label6);
             this.pnlRezerveUst.Controls.Add(this.label7);
@@ -165,6 +134,16 @@
             this.pnlRezerveUst.Name = "pnlRezerveUst";
             this.pnlRezerveUst.Size = new System.Drawing.Size(810, 34);
             this.pnlRezerveUst.TabIndex = 35;
+            // 
+            // btnBilgiKapat
+            // 
+            this.btnBilgiKapat.Location = new System.Drawing.Point(781, 6);
+            this.btnBilgiKapat.Name = "btnBilgiKapat";
+            this.btnBilgiKapat.Size = new System.Drawing.Size(25, 23);
+            this.btnBilgiKapat.TabIndex = 28;
+            this.btnBilgiKapat.Text = "x";
+            this.btnBilgiKapat.UseVisualStyleBackColor = true;
+            this.btnBilgiKapat.Click += new System.EventHandler(this.btnBilgiKapat_Click);
             // 
             // label5
             // 
@@ -205,6 +184,19 @@
             this.label8.Size = new System.Drawing.Size(34, 24);
             this.label8.TabIndex = 26;
             this.label8.Text = "Ad";
+            // 
+            // btnTamamla
+            // 
+            this.btnTamamla.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTamamla.BackColor = System.Drawing.Color.White;
+            this.btnTamamla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTamamla.Location = new System.Drawing.Point(629, 516);
+            this.btnTamamla.Name = "btnTamamla";
+            this.btnTamamla.Size = new System.Drawing.Size(135, 36);
+            this.btnTamamla.TabIndex = 48;
+            this.btnTamamla.Text = "TAMAMLA";
+            this.btnTamamla.UseVisualStyleBackColor = false;
+            this.btnTamamla.Click += new System.EventHandler(this.btnTamamla_Click);
             // 
             // pnlCinsiyet
             // 
@@ -253,12 +245,71 @@
             this.btnErkek.UseVisualStyleBackColor = false;
             this.btnErkek.Click += new System.EventHandler(this.btnSecim_Click);
             // 
+            // pnlOtobusUst
+            // 
+            this.pnlOtobusUst.Controls.Add(this.pbSofor);
+            this.pnlOtobusUst.Controls.Add(this.pnlOtobus);
+            this.pnlOtobusUst.Controls.Add(this.btnRezerve);
+            this.pnlOtobusUst.Controls.Add(this.lbDonusSefer);
+            this.pnlOtobusUst.Controls.Add(this.btnKapat);
+            this.pnlOtobusUst.Location = new System.Drawing.Point(160, 1049);
+            this.pnlOtobusUst.Name = "pnlOtobusUst";
+            this.pnlOtobusUst.Size = new System.Drawing.Size(1870, 410);
+            this.pnlOtobusUst.TabIndex = 45;
+            // 
+            // pbSofor
+            // 
+            this.pbSofor.Image = global::UluTP.Properties.Resources.sofor;
+            this.pbSofor.Location = new System.Drawing.Point(7, 218);
+            this.pbSofor.Name = "pbSofor";
+            this.pbSofor.Size = new System.Drawing.Size(89, 59);
+            this.pbSofor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSofor.TabIndex = 46;
+            this.pbSofor.TabStop = false;
+            // 
             // pnlOtobus
             // 
-            this.pnlOtobus.Location = new System.Drawing.Point(160, 1041);
+            this.pnlOtobus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlOtobus.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlOtobus.Location = new System.Drawing.Point(115, 46);
             this.pnlOtobus.Name = "pnlOtobus";
-            this.pnlOtobus.Size = new System.Drawing.Size(1860, 400);
+            this.pnlOtobus.Size = new System.Drawing.Size(1753, 309);
             this.pnlOtobus.TabIndex = 45;
+            // 
+            // btnRezerve
+            // 
+            this.btnRezerve.BackColor = System.Drawing.Color.White;
+            this.btnRezerve.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnRezerve.Location = new System.Drawing.Point(1620, 367);
+            this.btnRezerve.Name = "btnRezerve";
+            this.btnRezerve.Size = new System.Drawing.Size(212, 34);
+            this.btnRezerve.TabIndex = 0;
+            this.btnRezerve.Text = "Rezerve Et";
+            this.btnRezerve.UseVisualStyleBackColor = false;
+            this.btnRezerve.Click += new System.EventHandler(this.btnRezerve_Click);
+            // 
+            // lbDonusSefer
+            // 
+            this.lbDonusSefer.AutoSize = true;
+            this.lbDonusSefer.BackColor = System.Drawing.SystemColors.Control;
+            this.lbDonusSefer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbDonusSefer.Location = new System.Drawing.Point(15, 9);
+            this.lbDonusSefer.Name = "lbDonusSefer";
+            this.lbDonusSefer.Size = new System.Drawing.Size(59, 25);
+            this.lbDonusSefer.TabIndex = 1;
+            this.lbDonusSefer.Text = "Sefer";
+            // 
+            // btnKapat
+            // 
+            this.btnKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKapat.Location = new System.Drawing.Point(1833, 0);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.Size = new System.Drawing.Size(27, 26);
+            this.btnKapat.TabIndex = 44;
+            this.btnKapat.Text = "x";
+            this.btnKapat.UseVisualStyleBackColor = true;
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // grpSefer
             // 
@@ -270,7 +321,7 @@
             this.grpSefer.Controls.Add(this.label2);
             this.grpSefer.Controls.Add(this.btnListele);
             this.grpSefer.Controls.Add(this.cmbVaris);
-            this.grpSefer.Controls.Add(this.lbDonus);
+            this.grpSefer.Controls.Add(this.label4);
             this.grpSefer.Controls.Add(this.dtGidisTarih);
             this.grpSefer.Controls.Add(this.dtDonusTarih);
             this.grpSefer.Controls.Add(this.label3);
@@ -374,16 +425,16 @@
             this.cmbVaris.TabIndex = 12;
             this.cmbVaris.ValueMember = "ID";
             // 
-            // lbDonus
+            // label4
             // 
-            this.lbDonus.AutoSize = true;
-            this.lbDonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDonus.ForeColor = System.Drawing.Color.Black;
-            this.lbDonus.Location = new System.Drawing.Point(38, 185);
-            this.lbDonus.Name = "lbDonus";
-            this.lbDonus.Size = new System.Drawing.Size(123, 25);
-            this.lbDonus.TabIndex = 19;
-            this.lbDonus.Text = "Dönüş Tarihi";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(38, 185);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 25);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Dönüş Tarihi";
             // 
             // dtGidisTarih
             // 
@@ -473,7 +524,7 @@
             this.grpGiris.Controls.Add(this.lbAdSoyad);
             this.grpGiris.Controls.Add(this.btnGiris);
             this.grpGiris.Controls.Add(this.btnKayit);
-            this.grpGiris.Location = new System.Drawing.Point(1776, 0);
+            this.grpGiris.Location = new System.Drawing.Point(1676, 0);
             this.grpGiris.Name = "grpGiris";
             this.grpGiris.Size = new System.Drawing.Size(225, 140);
             this.grpGiris.TabIndex = 38;
@@ -533,11 +584,13 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmSatis_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.pnlKoltukBilgiler.ResumeLayout(false);
             this.pnlRezerveUst.ResumeLayout(false);
             this.pnlRezerveUst.PerformLayout();
             this.pnlCinsiyet.ResumeLayout(false);
+            this.pnlOtobusUst.ResumeLayout(false);
+            this.pnlOtobusUst.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSofor)).EndInit();
             this.grpSefer.ResumeLayout(false);
             this.grpSefer.PerformLayout();
             this.pnlSeferUst.ResumeLayout(false);
@@ -559,7 +612,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnListele;
         private System.Windows.Forms.ComboBox cmbVaris;
-        private System.Windows.Forms.Label lbDonus;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtGidisTarih;
         private System.Windows.Forms.DateTimePicker dtDonusTarih;
         private System.Windows.Forms.Label label3;
@@ -571,7 +624,7 @@
         private System.Windows.Forms.GroupBox grpGiris;
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Panel pnlSeferler;
-        private System.Windows.Forms.Panel pnlOtobus;
+        private System.Windows.Forms.Panel pnlOtobusUst;
         private System.Windows.Forms.Panel pnlCinsiyet;
         private System.Windows.Forms.Button btnKadin;
         private System.Windows.Forms.Button btnErkek;
@@ -588,5 +641,9 @@
         private System.Windows.Forms.Button btnGiris;
         private System.Windows.Forms.Button btnKayit;
         private System.Windows.Forms.Button btnSil;
+        private System.Windows.Forms.Panel pnlBilgiler;
+        private System.Windows.Forms.Button btnBilgiKapat;
+        private System.Windows.Forms.Panel pnlOtobus;
+        private System.Windows.Forms.PictureBox pbSofor;
     }
 }

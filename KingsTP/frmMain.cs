@@ -55,7 +55,7 @@ namespace KingsTP
                     Button btnSag = new Button();
                     btnSag.Width = 60;
                     btnSag.Height = 50;
-                    btnSag.Location = new Point(75 + ((k - 1) * 65), 30 + (i * 55));
+                    btnSag.Location = new Point(((k - 1) * 65), (i * 55));
                     string koltukText = "";
                     if (sag == 2)
                     {
@@ -88,7 +88,7 @@ namespace KingsTP
                     Button btnSol = new Button();
                     btnSol.Width = 60;
                     btnSol.Height = 50;
-                    btnSol.Location = new Point(75 + ((k - 1) * 65), 170 + (i * 55));
+                    btnSol.Location = new Point(1 + ((k - 1) * 65), 140 + (i * 55));
 
                     string koltukText = "";
                     if (sol == 2)
@@ -113,15 +113,8 @@ namespace KingsTP
                     btnSol.BackgroundImageLayout = ImageLayout.Stretch;
                     pnlOtobus.Controls.Add(btnSol);
                 }
-                pnlOtobus.Visible = true;
-                pnlOtobus.Location = new Point(pnlOtobus.Location.X, pnlSeferler.Location.Y + (h + 1) * 70);
-
-                btnKapat.Location = new Point(pnlOtobus.Location.X + pnlOtobus.Width - 30, pnlOtobus.Location.Y + 5);
-                lbDonusSefer.Location = new Point(pnlOtobus.Location.X + 5, pnlOtobus.Location.Y + 5);
-                btnRezerve.Location = new Point(pnlOtobus.Location.X + pnlOtobus.Width - btnRezerve.Width - 20, pnlOtobus.Location.Y + pnlOtobus.Height - 37);
-                btnRezerve.Visible = true;
-                btnKapat.Visible = true;
-                lbDonusSefer.Visible = true;
+                pnlOtobusUst.Visible = true;
+                pnlOtobusUst.Location = new Point(pnlOtobusUst.Location.X, pnlSeferler.Location.Y + (h + 1) * 70);
             }
 
 
@@ -145,7 +138,7 @@ namespace KingsTP
         {
             Button btn = (Button)sender;
             koltukNo = Convert.ToInt32(btn.Text);
-            pnlCinsiyet.Location = new Point(pnlOtobus.Location.X + btn.Location.X - 40, pnlOtobus.Location.Y + btn.Location.Y - 62);
+            pnlCinsiyet.Location = new Point(pnlOtobusUst.Location.X + btn.Location.X - 40, pnlOtobusUst.Location.Y + btn.Location.Y - 62);
             pnlCinsiyet.Visible = true;
         }
        
@@ -165,12 +158,7 @@ namespace KingsTP
         }
         private void frmSatis_Load(object sender, EventArgs e)
         {
-            GidisKoltuklar = new SingleLinkedList();
-            DonusKoltuklar = new SingleLinkedList();
-            btnTamamla.Visible = false;
-            btnRezerve.Visible = false;
-            btnKapat.Visible = false;
-            lbDonusSefer.Visible = false;
+          
             gidisDonus = 'g';
             Satis satis = new Satis();
             DataTable dtKalkis = satis.TerminalDoldur();
@@ -194,7 +182,7 @@ namespace KingsTP
             ucSefer uc1 = new ucSefer();
             uc1.Top = 10;
             this.Controls.Add(uc1);
-            pnlOtobus.Visible = false;
+            pnlOtobusUst.Visible = false;
             pnlCinsiyet.Visible = false;
             pnlKoltukBilgiler.Visible = false;
            
@@ -255,13 +243,10 @@ namespace KingsTP
             else
             {
 
-                pnlOtobus.Visible = false;
+                pnlOtobusUst.Visible = false;
                 satis.setKalkisID(Convert.ToInt32(cmbVaris.SelectedValue));
                 satis.setVarisID(Convert.ToInt32(cmbKalkis.SelectedValue));
                 kalkisTarih = dtDonusTarih.Value.ToString("yyyy-MM-dd");
-
-
-               
             }
 
             satis.setTarih(kalkisTarih);
@@ -276,15 +261,12 @@ namespace KingsTP
         {
             if (cmbKalkis.SelectedValue.ToString() != cmbVaris.SelectedValue.ToString())
             {
+                
                 pnlSeferler.Controls.Clear();
                 gidisDonus = 'g';
-                pnlOtobus.Visible = false;
+                pnlOtobusUst.Visible = false;
                 GidisKoltuklar = new SingleLinkedList();
                 DonusKoltuklar = new SingleLinkedList();
-                btnKapat.Visible = false;
-                btnRezerve.Visible = false;
-                lbDonusSefer.Visible = false;
-
                 pnlSeferUst.Location = new Point(pnlSeferler.Location.X, grpSefer.Location.Y + grpSefer.Height + 5);
                 pnlSeferler.Location = new Point(pnlSeferler.Location.X, grpSefer.Location.Y + grpSefer.Height + pnlSeferUst.Height + 15);
                 pnlSeferUst.Visible = true;
@@ -348,9 +330,7 @@ namespace KingsTP
                 btnKayit.Location = new Point(125, 45);
                 btnKayit.Width = 75;
                 btnGiris.Width = 75;
-                btnKapat.Visible = false;
-                btnRezerve.Visible = false;
-                lbDonusSefer.Visible = false;
+                pnlOtobusUst.Visible = false;
                 gidisDonus = 'g';
             }
         }
@@ -420,7 +400,7 @@ namespace KingsTP
                 lbKoltukNo.Text = iter.koltuk.ToString();
                 uc1.Top = sayac * 55 + top;
 
-                pnlKoltukBilgiler.Controls.Add(uc1);
+                pnlBilgiler.Controls.Add(uc1);
 
                 sayac++;
                 iter = iter.next;
@@ -428,43 +408,38 @@ namespace KingsTP
             }
            
             pnlKoltukBilgiler.Visible = true;
-            pnlOtobus.Visible = false;
-            btnKapat.Visible = false;
-            lbDonusSefer.Visible = false;
-            btnRezerve.Visible = false;
+            pnlOtobusUst.Visible = false;
+          
 
         }
         private void Rezerve()
         {
+            pnlBilgiler.Controls.Clear();
             pnlKoltukBilgiler.Location = new Point(pnlKoltukBilgiler.Location.X, 200);
             if (rbGidisDonus.Checked == false)
             {
-                rezerveDoldur(GidisKoltuklar,30);
-                pnlKoltukBilgiler.Height = sayac * 55 + btnTamamla.Height + 50;
+                rezerveDoldur(GidisKoltuklar,0);
+                pnlKoltukBilgiler.Height = sayac * 55 + btnTamamla.Height + 30;
             }
             else
             {
                 Label lblGidis = new Label();
-                lblGidis.Top = sayac * 80 + 40;
+                lblGidis.Top = sayac * 80 + 10;
                 lblGidis.Left = 10;
                 lblGidis.Text = "Gidiş Yolculuğu";
-                pnlKoltukBilgiler.Controls.Add(lblGidis);
+                pnlBilgiler.Controls.Add(lblGidis);
               
-                rezerveDoldur(GidisKoltuklar,50);
+                rezerveDoldur(GidisKoltuklar,30);
              
                 Label lblDonus = new Label();
                 lblDonus.Left = 10;
-                lblDonus.Top = sayac * 55 + 45;
+                lblDonus.Top = sayac * 55 + 30;
                 lblDonus.Text = "Dönüş Yolculuğu";
-                pnlKoltukBilgiler.Controls.Add(lblDonus);
-                rezerveDoldur(DonusKoltuklar,60);
+                pnlBilgiler.Controls.Add(lblDonus);
+                rezerveDoldur(DonusKoltuklar,50);
                 pnlKoltukBilgiler.Height = (sayac + 1) * 55 + btnTamamla.Height + 30;
                
             }
-            btnTamamla.Location = new Point(pnlKoltukBilgiler.Location.X + pnlKoltukBilgiler.Width - btnTamamla.Width - 35, pnlKoltukBilgiler.Location.Y + pnlKoltukBilgiler.Height - btnTamamla.Height - 10);
-            btnTamamla.Visible = true;
-
-
         }
 
         
@@ -478,9 +453,7 @@ namespace KingsTP
                     Listele();
                     btnRezerve.Text = "Rezerve Et";
                     lbDonusSefer.Text = "Dönüş Yolculuğu";
-                    btnKapat.Visible = false;
-                    lbDonusSefer.Visible = false;
-                    btnRezerve.Visible = false;
+                   
                 }
                 else
                     Rezerve();
@@ -491,11 +464,7 @@ namespace KingsTP
 
         private void btnKapat_Click(object sender, EventArgs e)
         {
-            pnlOtobus.Visible = false;
-            btnKapat.Visible = false;
-            lbDonusSefer.Visible = false;
-            btnRezerve.Visible = false;
-            pnlCinsiyet.Visible = false;
+            pnlOtobusUst.Visible = false;
         }
 
         int kSayac = 0;
@@ -535,9 +504,10 @@ namespace KingsTP
             if(rbGidisDonus.Checked)
                 RezerveEt(DonusKoltuklar);
 
-            pnlOtobus.Visible = false;
+            pnlOtobusUst.Visible = false;
+            pnlBilgiler.Visible = false;
             MessageBox.Show("İşlem Başarıyla Tamamlandı");
-
+            
            
         }
 
@@ -559,6 +529,9 @@ namespace KingsTP
                 objHelper.DeleteNodebyKey(GidisKoltuklar, koltukNo);
         }
 
-      
+        private void btnBilgiKapat_Click(object sender, EventArgs e)
+        {
+            pnlKoltukBilgiler.Visible = false;
+        }
     }
 }

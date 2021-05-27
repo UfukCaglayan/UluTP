@@ -281,6 +281,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bos.png" />
+    <None Include="Resources\sofor.png" />
     <None Include="Resources\kadin.png" />
     <None Include="Resources\erkek.png" />
     <None Include="Resources\boskol.png" />
