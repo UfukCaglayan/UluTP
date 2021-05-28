@@ -12,14 +12,16 @@ namespace KingsTP
     }
     internal class Node
     {
-        internal int data;
+        internal int seferID;
+        internal int koltuk;
         internal char cinsiyet;
         internal Node next;
 
         /// Constructor to create a new node.Next is by default initialized as null
-        public Node(int d,char c)
+        public Node(int s,int d,char c)
         {
-            data = d;
+            seferID = s;
+            koltuk = d;
             cinsiyet = c;
             next = null;
         }
@@ -30,9 +32,9 @@ namespace KingsTP
         {
             SingleLinkedList llist = new SingleLinkedList();
 
-            llist.head = new Node(1,'E');
-            Node second = new Node(2, 'E');
-            Node third = new Node(3, 'E');
+            llist.head = new Node(1,1,'E');
+            Node second = new Node(1,2, 'E');
+            Node third = new Node(1,3, 'E');
 
             llist.head.next = second;
             second.next = third;
@@ -40,28 +42,28 @@ namespace KingsTP
             return llist;
         }
         #region Insert_into_SinglyLinkedList
-        internal void InsertFront(SingleLinkedList singlyList, int new_data, char cinsiyet)
+        internal void InsertFront(SingleLinkedList singlyList,int sefer, int koltuk, char cinsiyet)
         {
-            Node new_node = new Node(new_data,cinsiyet);
+            Node new_node = new Node(sefer,koltuk,cinsiyet);
             new_node.next = singlyList.head;
 
             singlyList.head = new_node;
         }
-        internal void InsertAfter(Node prev_node, int new_data, char cinsiyet)
+        internal void InsertAfter(Node prev_node, int sefer, int koltuk, char cinsiyet)
         {
             if (prev_node == null)
             {
                 Console.WriteLine("The given previous node Cannot be null");
                 return;
             }
-            Node new_node = new Node(new_data,cinsiyet);
+            Node new_node = new Node(sefer,koltuk,cinsiyet);
 
             new_node.next = prev_node.next;
             prev_node.next = new_node;
         }
-        internal void InsertLast(SingleLinkedList singlyList, int new_data, char cinsiyet)
+        internal void InsertLast(SingleLinkedList singlyList,int sefer, int koltuk, char cinsiyet)
         {
-            Node new_node = new Node(new_data,cinsiyet);
+            Node new_node = new Node(sefer,koltuk,cinsiyet);
 
             if (singlyList.head == null)
             {
@@ -92,13 +94,13 @@ namespace KingsTP
             Node temp = singlyList.head;
             Node prev = null;
 
-            if (temp != null && temp.data == key)
+            if (temp != null && temp.koltuk == key)
             {
                 singlyList.head = temp.next;
                 return;
             }
 
-            while (temp != null && temp.data != key)
+            while (temp != null && temp.koltuk != key)
             {
                 prev = temp;
                 temp = temp.next;
@@ -111,32 +113,6 @@ namespace KingsTP
         }
         /* Given a position in Linked List, deletes the node at the given position*/
 
-        public int GetKoltukNo(SingleLinkedList singlyList, int position)
-        {
-            Node temp = singlyList.head;
-            /*   if (singlyList.head == null)
-               {
-                   return;
-               }
-
-
-               if (position == 0)
-               {
-                   singlyList.head = temp.next;
-                   return;
-               }
-               for (int i = 0; temp != null && i < position - 1; i++)
-               {
-                   temp = temp.next;
-               }
-               if (temp == null || temp.next == null)
-               {
-                   return;
-               }
-            */
-            // Node temp->next is the node to be deleted
-            return temp.next.data;
-        }
 
         public void DeleteNodebyPosition(SingleLinkedList singlyList, int position)
         {
@@ -173,7 +149,7 @@ namespace KingsTP
 
             while (temp != null)
             {
-                if (temp.data == value)
+                if (temp.koltuk == value)
                 {
                     Console.WriteLine("The Element {0} is present in Linked List", value);
                     return;
@@ -217,7 +193,7 @@ namespace KingsTP
                     fast_ptr = fast_ptr.next.next;
                     slow_ptr = slow_ptr.next;
                 }
-                Console.WriteLine("The middle element is {0}", slow_ptr.data);
+                Console.WriteLine("The middle element is {0}", slow_ptr.koltuk);
             }
         }
 
@@ -227,7 +203,7 @@ namespace KingsTP
             Node n = singlyList.head;
             while (n != null)
             {
-                Console.Write(n.data + " ");
+                Console.Write(n.koltuk + " ");
                 n = n.next;
             }
         }

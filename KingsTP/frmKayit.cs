@@ -19,7 +19,6 @@ namespace KingsTP
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            int a = msbTelefon.Text.Length;
             if (txtAdSoyad.Text != "" && txtTCKimlikNo.Text != "" && msbTelefon.Text != "" && txtEmail.Text != "" && txtSifre.Text != "" && txtSifreTekrar.Text != "")
             {
 
@@ -32,26 +31,32 @@ namespace KingsTP
                             Uyelik uyelik = new Uyelik(txtAdSoyad.Text, txtTCKimlikNo.Text, msbTelefon.Text, txtEmail.Text, txtSifre.Text);
                             if (uyelik.emailKontrol(txtEmail.Text))
                             {
-                                bool kayit = uyelik.KayitOl();
-                                if (kayit == false)
-                                    MessageBox.Show("Aynı TC Kimlik Numarası veya Email Adresiyle Daha Önce Kayıt Oluşturulmuştur", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                bool kayitVarmi = uyelik.kayitVarmi();
+                                if (kayitVarmi == false)
+                                    MessageBox.Show("Aynı TC Kimlik Numarası veya Email adresiyle daha önce kayıt oluşturulmuştur", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 else
-                                    MessageBox.Show("Kayıt Başarıyla Tamamlandı", "Kayıt", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                {
+                                    int id = uyelik.KayitOl();
+                                    MessageBox.Show("Kayıt başarıyla tamamlandı", "Kayıt", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                    GirisBilgileri.KullaniciID = id;
+                                    ((frmMain)this.Owner).Giris(txtAdSoyad.Text);
+                                    this.Close();
+                                }
                             }
                             else
-                                MessageBox.Show("Email Adresinizi Doğru Giriniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Email adresinizi doğru giriniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
-                            MessageBox.Show("Telefon Numaranızı Eksiksiz Giriniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Telefon numaranızı eksiksiz giriniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                        MessageBox.Show("TC Kimlik Numarası 11 Haneli Olmalıdır", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("TC Kimlik Numarası 11 haneli olmalıdır", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
-                    MessageBox.Show("Girdiğiniz Şifreler Aynı Değildir", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Girdiğiniz şifreler aynı değildir", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                MessageBox.Show("Bilgilerinizi Eksik Girdiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                MessageBox.Show("Bilgilerinizi eksik eirdiniz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
         }
     }
 }

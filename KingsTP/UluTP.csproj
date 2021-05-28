@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F6B97AC6-6597-42EE-9A68-F51D2B61F487}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>KingsTP</RootNamespace>
-    <AssemblyName>KingsTP</AssemblyName>
+    <RootNamespace>UluTP</RootNamespace>
+    <AssemblyName>UluTP</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -130,6 +130,7 @@
     <Compile Include="frmOtobusIslemleri.Designer.cs">
       <DependentUpon>frmOtobusIslemleri.cs</DependentUpon>
     </Compile>
+    <Compile Include="GidisDonus.cs" />
     <Compile Include="Giris.cs" />
     <Compile Include="GirisBilgileri.cs" />
     <Compile Include="KoltukRezerve.cs" />
@@ -246,6 +247,49 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bright-road.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snacks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BISI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kayit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cizgi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_turkuaz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulanık.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\golge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\son2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\bos.png" />
+    <None Include="Resources\ulutplogo.jpeg" />
+    <None Include="Resources\ulutp.jpeg" />
+    <None Include="Resources\sofor.png" />
+    <None Include="Resources\kadin.png" />
+    <None Include="Resources\erkek.png" />
+    <None Include="Resources\boskol.png" />
+    <None Include="Resources\boskoltuk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

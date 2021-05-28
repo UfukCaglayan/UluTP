@@ -17,7 +17,7 @@ namespace KingsTP
         }
         public DataTable KoltukDoldur(int seferID)
         {
-            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT KoltukNo FROM tblKoltukRezerve WHERE SeferID = @param1", new SqlParameter[] { new SqlParameter("param1", seferID) });
+            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT KoltukNo,Cinsiyet FROM tblKoltukRezerve WHERE SeferID = @param1", new SqlParameter[] { new SqlParameter("param1", seferID) });
             return dt;
         }
 
@@ -28,7 +28,7 @@ namespace KingsTP
 
         public DataTable GecmisRezerve(int uyeID)
         {
-            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT TCKimlikNo,Ad + ' ' + Soyad AS AdSoyad,Cinsiyet,KoltukNo,KR.ID FROM tblKoltukRezerve KR INNER JOIN tblSeferler S ON KR.SeferID = S.ID WHERE UyeID = @param1 AND TarihSaat > GETDATE()", new SqlParameter[] { new SqlParameter("param1", uyeID) });
+            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT TCKimlikNo,Ad + ' ' + Soyad AS AdSoyad,Cinsiyet,KoltukNo,KR.ID,(SELECT TerminalAdi FROM tblTerminaller WHERE ID = KalkisTerminalID) AS KalkisTerminal,(SELECT TerminalAdi FROM tblTerminaller WHERE ID = VarisTerminalID) AS VarisTerminal FROM tblKoltukRezerve KR INNER JOIN tblSeferler S ON KR.SeferID = S.ID WHERE UyeID = @param1 AND KalkisZaman > GETDATE()", new SqlParameter[] { new SqlParameter("param1", uyeID) });
             return dt;
         }
 

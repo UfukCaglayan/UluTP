@@ -19,28 +19,31 @@ namespace KingsTP
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            Giris giris = new Giris(txtEmail.Text,txtSifre.Text);
-            int id = giris.GirisYap();
-            if(id != -1)
+            if (txtEmail.Text != "" && txtSifre.Text != "")
             {
-                bool admin = giris.adminKontrol();
-                if(admin == true)
+                Giris giris = new Giris(txtEmail.Text, txtSifre.Text);
+                int id = giris.GirisYap();
+                if (id != -1)
                 {
-                    frmYonetim yonetim = new frmYonetim();
-                    yonetim.Show();
-                    this.Close();
+                    bool admin = giris.adminKontrol();
+                    if (admin == true)
+                    {
+                        frmYonetim yonetim = new frmYonetim();
+                        yonetim.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        GirisBilgileri.KullaniciID = id;
+                        ((frmMain)this.Owner).Giris(giris.getAdSoyad());
+                        this.Close();
+                    }
                 }
                 else
-                {
-                    GirisBilgileri.KullaniciID = id;
-                    GirisBilgileri.AdSoyad = giris.getAdSoyad();
-                    frmMain main = new frmMain();
-                    main.Show();
-                    this.Close();
-                }
+                    MessageBox.Show("E Mail adresini veya şifreyi yanlış girdiniz");
             }
             else
-                MessageBox.Show("E Mail adresini veya şifreyi yanlış girdiniz");
+                MessageBox.Show("E Mail adresinizi ve şifrenizi boş girmeyiniz");
         }
     }
 }

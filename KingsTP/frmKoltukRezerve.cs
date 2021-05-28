@@ -13,6 +13,7 @@ namespace KingsTP
 {
     public partial class frmKoltukRezerve : Form
     {
+
         public frmKoltukRezerve()
         {
             InitializeComponent();
@@ -70,6 +71,8 @@ namespace KingsTP
                     btnSag.Click += btnKoltuk_Click;
                     btnSag.Text = koltukText;
                     btnSag.Name = "btnKoltuk" + koltukText;
+                    btnSag.Image = UluTP.Properties.Resources.boskoltuk;
+                    btnSag.BackgroundImageLayout = ImageLayout.Stretch;
                     this.Controls.Add(btnSag);
                 }
             }
@@ -123,6 +126,7 @@ namespace KingsTP
             koltukNo = Convert.ToInt32(btn.Text);
             pnlCinsiyet.Location = new Point(btn.Location.X - 40, btn.Location.Y - 62);
             pnlCinsiyet.Visible = true;
+           
         }
 
         private void frmKoltukRezerve_Load(object sender, EventArgs e)
@@ -138,7 +142,7 @@ namespace KingsTP
             Button btn = (Button)sender;
             char cinsiyet = Convert.ToChar(btn.Text);
             HelperSLL objHelper = new HelperSLL();
-            objHelper.InsertLast(Koltuklar, koltukNo, cinsiyet);
+            objHelper.InsertLast(Koltuklar,seferID, koltukNo, cinsiyet);
             pnlCinsiyet.Visible = false;
         }
 
@@ -151,13 +155,14 @@ namespace KingsTP
                 ucRezerve uc1 = new ucRezerve();
                 uc1.Name = "ucRezerve" + sayac;
                 Label lbKoltukNo = uc1.Controls.Find("lbKoltukNo", true).FirstOrDefault() as Label;
-                lbKoltukNo.Text = iter.data.ToString();
-                uc1.Top = sayac * 80;
+                lbKoltukNo.Text = iter.koltuk.ToString();
+                uc1.Top = sayac * 120;
                 pnlBilgiler.Controls.Add(uc1);
-                pnlBilgiler.Height = (sayac + 1) * 100;
+                
                 sayac++;
                 iter = iter.next;
             }
+            pnlBilgiler.Height = (sayac + 1) * 105;
             pnlRezerveUst.Visible = true;
         }
 
@@ -181,7 +186,7 @@ namespace KingsTP
                 TextBox txTCKimlikNo = uc.Controls.Find("txTCKimlikNo", true).FirstOrDefault() as TextBox;
                 TextBox txtAd = uc.Controls.Find("txtAd", true).FirstOrDefault() as TextBox;
                 TextBox txtSoyad = uc.Controls.Find("txtSoyad", true).FirstOrDefault() as TextBox;
-                dt.Rows.Add(seferID,iter.data,txTCKimlikNo.Text,txtAd.Text,txtSoyad.Text,iter.cinsiyet,GirisBilgileri.KullaniciID);
+                dt.Rows.Add(seferID,iter.koltuk,txTCKimlikNo.Text,txtAd.Text,txtSoyad.Text,iter.cinsiyet,GirisBilgileri.KullaniciID);
                 sayac++;
                 iter = iter.next;
             }
@@ -190,6 +195,17 @@ namespace KingsTP
             sefer.KoltukAzalt(seferID, sayac);
             KoltukDoldur(seferID);
             MessageBox.Show("İŞLEM TAMAM");
+
+        }
+
+        private void btnDonus_Click(object sender, EventArgs e)
+        {
+            GidisDonus.sira = 'd';
+            /*var mfrm = (frmMain)Application.OpenForms["frmMain"];
+            if (mfrm != null)
+                mfrm.asdfg();*/
+            Form form = Application.OpenForms.Cast<Form>().Where(f => f.GetType() == typeof(frmMain)).FirstOrDefault();
+            this.Owner = form;
 
         }
     }
