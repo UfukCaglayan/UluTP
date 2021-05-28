@@ -26,22 +26,48 @@ namespace KingsTP
             cmbKalkis.DataSource = dtKalkis;
             DataTable dtVaris = MSSQLDataConnection.SelectDataFromDB("SELECT ID,TerminalAdi FROM tblTerminaller", null);
             cmbVaris.DataSource = dtVaris;
+            goster();
         }
 
+
         private void btnKaydet_Click(object sender, EventArgs e)
-        {
+        {   
+            if(t_bKod.Text == "" || t_hSure.Text == "" || t_fiyat.Text == "")
+            {
+                MessageBox.Show("eksik giriş yaptınız");
+                return;
+            }
             string gidisTarih = dtGidisTarih.Value.ToString("yyyy-MM-dd");
             string gidisSaat = txtGidisSaat.Text + ":" + txtGidisDakika.Text;
-            string gidisTarihSaat = gidisTarih + " " + gidisSaat;
+            string gidisTS = gidisTarih + " " + gidisSaat;
 
-            string donusTarih = dtDonusTarih.Value.ToString("yyyy-MM-dd");
-            string donusSaat = txtDonusSaat.Text + ":" + txtDonusDakika.Text;
-            string donusTarihSaat = donusTarih + " " + donusSaat;
+            int kalTerminal_id = Convert.ToInt32(cmbKalkis.SelectedValue);
+            int varTerminal_id = Convert.ToInt32(cmbVaris.SelectedValue);
+
+            string bKod = t_bKod.Text;
+
+            int hSure = Convert.ToInt32(t_hSure.Text);
+
+            int fiyat = Convert.ToInt32(t_fiyat.Text);
 
             int otobusID = Convert.ToInt32(cmbOtobus.SelectedValue);
 
+           // bool gidisDonus = cbGidisDonus.Checked;
+
             int kalanKoltuk = MSSQLDataConnection.SelectIntFromDB("SELECT KoltukSayisi FROM tblKoltukTurleri KT INNER JOIN tblOtobusler O ON KT.ID = O.KoltukTuruID WHERE O.ID = @param1", new SqlParameter[] { new SqlParameter("param1", otobusID) });
 
+            Sefer sefer = new Sefer(gidisTS, kalTerminal_id, varTerminal_id, bKod, hSure, fiyat, otobusID, kalanKoltuk);
+            goster();
+
+        }
+
+        
+
+        void goster()
+        {
+            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT ID,OtobusID,KalkisTerminalID,VarisTerminalID,KalkisZaman,BiletKodu,HareketSuresi,KalanKoltuk,Fiyat FROM tblSeferler", null);
+            dgvSeferler.DataSource = dt;
+            dgvSeferler.Columns[0].Visible = false;
         }
 
         private void nupSaat_ValueChanged(object sender, EventArgs e)
@@ -62,7 +88,15 @@ namespace KingsTP
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            
+            DialogResult sil = MessageBox.Show("Sefer kaydını silmek istediğinizden emin misiniz ?", "Kayıt Silme", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (sil == DialogResult.Yes)
+            {
+                int id = Convert.ToInt32(dgvSeferler.CurrentRow.Cells[0].Value);
+                MSSQLDataConnection.DeleteDataFromDB("DELETE FROM tblSeferler WHERE ID = @param1", new SqlParameter[] { new SqlParameter("param1", id) });
+                goster();
+                MessageBox.Show("Kayıt Başarıyla Silindi.", "Kayıt Silme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+
         }
 
         private void btnTemizle_Click(object sender, EventArgs e)
@@ -70,20 +104,17 @@ namespace KingsTP
 
         }
 
-        private void nupDonusSaat_ValueChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(nupDonusSaat.Value.ToString()) < 10)
-                txtDonusSaat.Text = "0" + nupDonusSaat.Value;
-            else
-                txtDonusSaat.Text = nupDonusSaat.Value.ToString();
-        }
+       
 
-        private void nupDonusDakika_ValueChanged(object sender, EventArgs e)
+        private void cmbVaris_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(nupDonusDakika.Value.ToString()) < 10)
-                txtDonusDakika.Text = "0" + nupDonusDakika.Value;
-            else
-                txtDonusDakika.Text = nupDonusDakika.Value.ToString();
+            string idx="";
+            try
+            {
+                idx = (Convert.ToInt32(dgvSeferler.Rows[dgvSeferler.RowCount - 2].Cells[0].Value)+1).ToString();
+            }
+            catch {}
+            t_bKod.Text = string.Concat(cmbKalkis.Text[0], cmbVaris.Text[0], idx);
         }
     }
 }
