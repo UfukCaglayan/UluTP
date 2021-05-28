@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingsTP", "KingsTP\KingsTP.csproj", "{F6B97AC6-6597-42EE-9A68-F51D2B61F487}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UluTP", "KingsTP\UluTP.csproj", "{F6B97AC6-6597-42EE-9A68-F51D2B61F487}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

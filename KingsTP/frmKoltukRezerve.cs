@@ -13,19 +13,21 @@ namespace KingsTP
 {
     public partial class frmKoltukRezerve : Form
     {
+
         public frmKoltukRezerve()
         {
             InitializeComponent();
         }
 
+      
 
-        public List<int> koltuklar = new List<int>();
-        int sefer;
-        public void KoltukDoldur(int seferID)
+        int seferID;
+        public void KoltukDoldur(int sefer)
         {
             int sag = 0, sol = 0;
-            sefer = seferID;
-            int koltukTuru = MSSQLDataConnection.SelectIntFromDB("SELECT KoltukTuruID FROM tblSeferler S INNER JOIN tblOtobusler O ON S.OtobusID = O.ID WHERE S.ID = @param1", new SqlParameter[] { new SqlParameter("param1", seferID) });
+            seferID = sefer;
+            KoltukRezerve koltukRezerve = new KoltukRezerve();
+            int koltukTuru = koltukRezerve.KoltukTuruGetir(seferID);
             if (koltukTuru == 1)
             {
                 sag = 1;
@@ -69,6 +71,8 @@ namespace KingsTP
                     btnSag.Click += btnKoltuk_Click;
                     btnSag.Text = koltukText;
                     btnSag.Name = "btnKoltuk" + koltukText;
+                    btnSag.Image = UluTP.Properties.Resources.boskoltuk;
+                    btnSag.BackgroundImageLayout = ImageLayout.Stretch;
                     this.Controls.Add(btnSag);
                 }
             }
@@ -105,7 +109,7 @@ namespace KingsTP
             }
 
 
-            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT KoltukNo FROM tblKoltukRezerve WHERE SeferID = @param1", new SqlParameter[] { new SqlParameter("param1", seferID) });
+            DataTable dt = koltukRezerve.KoltukDoldur(seferID);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string koltuk = dt.Rows[i][0].ToString();
@@ -115,42 +119,56 @@ namespace KingsTP
         }
 
         int koltukNo = 0;
-
+        SingleLinkedList Koltuklar;
         private void btnKoltuk_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             koltukNo = Convert.ToInt32(btn.Text);
             pnlCinsiyet.Location = new Point(btn.Location.X - 40, btn.Location.Y - 62);
             pnlCinsiyet.Visible = true;
+           
         }
 
         private void frmKoltukRezerve_Load(object sender, EventArgs e)
         {
             pnlCinsiyet.Visible = false;
+            Koltuklar = new SingleLinkedList();
+            pnlRezerveUst.Visible = false;
         }
 
 
         private void btnSecim_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            koltuklar.Add(koltukNo);
+            char cinsiyet = Convert.ToChar(btn.Text);
+            HelperSLL objHelper = new HelperSLL();
+            objHelper.InsertLast(Koltuklar,seferID, koltukNo, cinsiyet);
             pnlCinsiyet.Visible = false;
         }
 
         private void btnRezerve_Click(object sender, EventArgs e)
         {
-            Sefer.koltukNo = koltuklar;
-            for (int i = 0; i < koltuklar.Count; i++)
+            Node iter = Koltuklar.head;
+            int sayac = 0;
+            while (iter != null)
             {
                 ucRezerve uc1 = new ucRezerve();
-                uc1.Name = "ucRezerve" + i;
-                uc1.Top = i * 70;
+                uc1.Name = "ucRezerve" + sayac;
+                Label lbKoltukNo = uc1.Controls.Find("lbKoltukNo", true).FirstOrDefault() as Label;
+                lbKoltukNo.Text = iter.koltuk.ToString();
+                uc1.Top = sayac * 120;
                 pnlBilgiler.Controls.Add(uc1);
+                
+                sayac++;
+                iter = iter.next;
             }
+            pnlBilgiler.Height = (sayac + 1) * 105;
+            pnlRezerveUst.Visible = true;
         }
 
         private void btnOdeme_Click(object sender, EventArgs e)
         {
+            KoltukRezerve koltukRezerve = new KoltukRezerve();
             DataTable dt = new DataTable();
             dt.Columns.Add("SeferID", typeof(int));
             dt.Columns.Add("KoltukID", typeof(int));
@@ -158,18 +176,36 @@ namespace KingsTP
             dt.Columns.Add("Ad", typeof(string));
             dt.Columns.Add("Soyad", typeof(string));
             dt.Columns.Add("Cinsiyet", typeof(string));
+            dt.Columns.Add("UyeID", typeof(string));
 
-            for (int i = 0; i < koltuklar.Count; i++)
+            Node iter = Koltuklar.head;
+            int sayac = 0;
+            while (iter != null)
             {
-                UserControl uc = this.Controls.Find("ucRezerve" + i, true).FirstOrDefault() as UserControl;
+                UserControl uc = this.Controls.Find("ucRezerve" + sayac, true).FirstOrDefault() as UserControl;
                 TextBox txTCKimlikNo = uc.Controls.Find("txTCKimlikNo", true).FirstOrDefault() as TextBox;
                 TextBox txtAd = uc.Controls.Find("txtAd", true).FirstOrDefault() as TextBox;
                 TextBox txtSoyad = uc.Controls.Find("txtSoyad", true).FirstOrDefault() as TextBox;
-                dt.Rows.Add(sefer,koltuklar[i],txTCKimlikNo.Text,txtAd.Text,txtSoyad.Text,"E");
-                
+                dt.Rows.Add(seferID,iter.koltuk,txTCKimlikNo.Text,txtAd.Text,txtSoyad.Text,iter.cinsiyet,GirisBilgileri.KullaniciID);
+                sayac++;
+                iter = iter.next;
             }
-            MSSQLDataConnection.InsertRezerveTablo(dt);
+            koltukRezerve.RezerveEt(dt);
+            Sefer sefer = new Sefer();
+            sefer.KoltukAzalt(seferID, sayac);
+            KoltukDoldur(seferID);
             MessageBox.Show("İŞLEM TAMAM");
+
+        }
+
+        private void btnDonus_Click(object sender, EventArgs e)
+        {
+            GidisDonus.sira = 'd';
+            /*var mfrm = (frmMain)Application.OpenForms["frmMain"];
+            if (mfrm != null)
+                mfrm.asdfg();*/
+            Form form = Application.OpenForms.Cast<Form>().Where(f => f.GetType() == typeof(frmMain)).FirstOrDefault();
+            this.Owner = form;
 
         }
     }

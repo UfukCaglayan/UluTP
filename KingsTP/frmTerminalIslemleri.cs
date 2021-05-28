@@ -20,7 +20,8 @@ namespace KingsTP
         bool kaydet = true;
         private void Goster()
         {
-            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT * FROM tblTerminaller", null);
+            Terminal terminal = new Terminal();
+            DataTable dt = terminal.Doldur();
             dgvTerminaller.DataSource = dt;
             Temizle();
             if (dt.Rows.Count > 0)
@@ -37,27 +38,27 @@ namespace KingsTP
         {
             if (txtTerminal.Text != "")
             {
+                Terminal terminal = new Terminal();
                 if (kaydet == true)
                 {
-
-                int cnt = MSSQLDataConnection.SelectIntFromDB("SELECT COUNT(*) FROM tblTerminaller WHERE TerminalAdi = @param1", new SqlParameter[] { new SqlParameter("param1", txtTerminal.Text) });
-                    if (cnt == 0)
+                    bool kontrol = terminal.terminalVarmi(txtTerminal.Text);
+                    if (kontrol == false)
                     {
-
-                        MSSQLDataConnection.InsertDataToDB("INSERT INTO tblTerminaller (TerminalAdi) VALUES (@param1)", new SqlParameter[] { new SqlParameter("param1", txtTerminal.Text) });
-                        Goster();
+                        terminal.setTerminalAdi(txtTerminal.Text);
+                        terminal.Kaydet();
                         MessageBox.Show("Kayıt Başarıyla Eklendi.", "Kayıt Ekleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Goster();
                     }
                 }
                 else
                 {
 
-                    MSSQLDataConnection.UpdateDataToDB("UPDATE tblTerminaller SET TerminalAdi = @param1 WHERE ID = @param2 ", new SqlParameter[] { new SqlParameter("param1", txtTerminal.Text), new SqlParameter("param2", seciliID) });
+                    terminal.setID(seciliID);
+                    terminal.setTerminalAdi(txtTerminal.Text);
+                    terminal.Guncelle();
+                    Goster(); 
                     MessageBox.Show("Kayıt Başarıyla Güncellendi.", "Kayıt Güncelleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    Goster();
                     kaydet = true;
-
-
                 }
             }
         }
@@ -66,10 +67,11 @@ namespace KingsTP
             DialogResult sil = MessageBox.Show("Terminal kaydını silmek istediğinizden emin misiniz ?", "Kayıt Silme", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (sil == DialogResult.Yes)
             {
+                Terminal terminal = new Terminal();
                 int ID = Convert.ToInt32(dgvTerminaller.CurrentRow.Cells[0].Value.ToString());
-                MSSQLDataConnection.DeleteDataFromDB("DELETE FROM tblTerminaller WHERE ID = @param1", new SqlParameter[] { new SqlParameter("param1", ID) });
-                MessageBox.Show("Kayıt Başarıyla Silindi.", "Kayıt Silme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                terminal.Sil(ID);
                 Goster();
+                MessageBox.Show("Kayıt Başarıyla Silindi.", "Kayıt Silme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
 
         }
@@ -87,7 +89,6 @@ namespace KingsTP
         int seciliID = 0;
         private void dgvTerminaller_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
             seciliID = Convert.ToInt32(dgvTerminaller.CurrentRow.Cells[0].Value.ToString());
             txtTerminal.Text = dgvTerminaller.CurrentRow.Cells[1].Value.ToString();
             kaydet = false;
@@ -95,7 +96,8 @@ namespace KingsTP
 
         private void txtArama_TextChanged(object sender, EventArgs e)
         {
-            DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT * FROM tblTerminaller WHERE TerminalAdi LIKE '%" + txtArama.Text + "%'", null);
+            Terminal terminal = new Terminal();
+            DataTable dt = terminal.Arama(txtArama.Text);
             dgvTerminaller.DataSource = dt;
             if (dt.Rows.Count > 0)
                 dgvTerminaller.Columns[0].Visible = false;
