@@ -38,27 +38,42 @@ namespace KingsTP
         {
             if (txtTerminal.Text != "")
             {
-                Terminal terminal = new Terminal();
+                Terminal terminal = new Terminal(txtTerminal.Text);
+                bool kontrol = terminal.terminalVarmi(txtTerminal.Text);
                 if (kaydet == true)
                 {
-                    bool kontrol = terminal.terminalVarmi(txtTerminal.Text);
                     if (kontrol == false)
                     {
-                        terminal.setTerminalAdi(txtTerminal.Text);
                         terminal.Kaydet();
-                        MessageBox.Show("Kayıt Başarıyla Eklendi.", "Kayıt Ekleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         Goster();
+                        MessageBox.Show("Kayıt Başarıyla Eklendi.", "Kayıt Ekleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
+                    else
+                        MessageBox.Show("Bu terminal daha önce sisteme kayıt edildi", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
                 else
                 {
 
                     terminal.setID(seciliID);
-                    terminal.setTerminalAdi(txtTerminal.Text);
-                    terminal.Guncelle();
-                    Goster(); 
-                    MessageBox.Show("Kayıt Başarıyla Güncellendi.", "Kayıt Güncelleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    kaydet = true;
+                    if (txtTerminal.Text != dgvTerminaller.CurrentRow.Cells[1].Value.ToString())
+                    {
+                        if (kontrol == false)
+                        {
+                            terminal.Guncelle();
+                            Goster();
+                            MessageBox.Show("Kayıt başarıyla güncellendi.", "Kayıt Güncelleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            kaydet = true;
+                        }
+                        else
+                            MessageBox.Show("Bu terminal daha önce sisteme kayıt edildi", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    }
+                    else
+                    {
+                        terminal.Guncelle();
+                        Goster();
+                        MessageBox.Show("Kayıt başarıyla güncellendi.", "Kayıt Güncelleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                   
                 }
             }
         }

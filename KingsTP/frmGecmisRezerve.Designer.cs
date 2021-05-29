@@ -133,7 +133,7 @@
             this.MaximizeBox = false;
             this.Name = "frmGecmisRezerve";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Geçmiş Rezerve";
+            this.Text = "Rezerve Geçmişi";
             this.Load += new System.EventHandler(this.frmRezerveBilgi_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

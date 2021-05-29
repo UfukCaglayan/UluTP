@@ -44,7 +44,7 @@ namespace KingsTP
         private void frmOtobusIslemleri_Load(object sender, EventArgs e)
         {
             KoltukTurleri kt = new KoltukTurleri();
-            DataTable dtKoltuk = kt.Cagir();
+            DataTable dtKoltuk = kt.Doldur();
             cmbKoltukTuru.DataSource = dtKoltuk;
             cmbKoltukTuru.Text = "Seçiniz";
             Goster();
@@ -54,32 +54,44 @@ namespace KingsTP
         {
             if (txtPlaka.Text != null && cmbKoltukTuru.Text != "Seçiniz")
             {
-                Otobus otobus = new Otobus();
+                Otobus otobus = new Otobus(txtPlaka.Text, Convert.ToInt32(cmbKoltukTuru.SelectedValue));
+                bool kontrol = otobus.otobusVarmi(txtPlaka.Text);
                 if (txtPlaka.Text.Length == 8)
                 {
-                    bool kontrol = otobus.otobusVarmi(txtPlaka.Text);
                     if (kaydet == true)
                     {
                         if (kontrol == false)
                         {
-                            otobus.setPlaka(txtPlaka.Text);
-                            otobus.setKoltukTuruID(Convert.ToInt32(cmbKoltukTuru.SelectedValue));
+                         
                             otobus.Kaydet();
                             Goster();
                             MessageBox.Show("Kayıt Başarıyla Eklendi.", "Kayıt Ekleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                        else
-                            MessageBox.Show("Bu Plakaya Sahip Otobüs Daha Önce Sisteme Kayıt Edildi", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            MessageBox.Show("Bu plakaya sahip otobüs daha önce sisteme kayıt edildi", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     }
                     else
                     {
                         otobus.setID(seciliID);
-                        otobus.setPlaka(txtPlaka.Text);
-                        otobus.setKoltukTuruID(Convert.ToInt32(cmbKoltukTuru.SelectedValue));
-                        otobus.Guncelle();
-                        Goster();
-                        MessageBox.Show("Kayıt Başarıyla Güncellendi.", "Kayıt Güncelleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        kaydet = true;
+                        if(txtPlaka.Text != dgvOtobusler.CurrentRow.Cells[1].Value.ToString())
+                        {
+                            if (kontrol == false)
+                            {
+                                otobus.Guncelle();
+                                Goster();
+                                MessageBox.Show("Kayıt başarıyla güncellendi.", "Kayıt Güncelleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                kaydet = true;
+                            }
+                            else
+                                MessageBox.Show("Bu plakaya sahip otobüs daha önce sisteme kayıt edildi", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        }
+                        else
+                        {
+                            kaydet = true;
+                            otobus.Guncelle();
+                            Goster();
+                            MessageBox.Show("Kayıt başarıyla güncellendi.", "Kayıt Güncelleme", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        }
                     }
                 }
                 else

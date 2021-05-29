@@ -11,7 +11,7 @@ namespace KingsTP
     {
         int ID;
         string kolturTuru;
-        public DataTable Cagir()
+        public DataTable Doldur()
         {
             DataTable dt = MSSQLDataConnection.SelectDataFromDB("SELECT ID,KoltukTuru FROM tblKoltukTurleri", null);
             return dt;

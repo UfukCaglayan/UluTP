@@ -33,7 +33,7 @@ namespace KingsTP
                 ((frmMain)this.Parent.Parent.Parent).KoltukDoldur(Convert.ToInt32(lbSeferID.Text), ind);
             }
             else
-                MessageBox.Show("Önce giriş yapmalısınız");
+                MessageBox.Show("Önce giriş yapmalısınız","Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

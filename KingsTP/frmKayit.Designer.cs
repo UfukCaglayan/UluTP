@@ -66,6 +66,7 @@
             // txtTCKimlikNo
             // 
             this.txtTCKimlikNo.Location = new System.Drawing.Point(204, 106);
+            this.txtTCKimlikNo.MaxLength = 11;
             this.txtTCKimlikNo.Name = "txtTCKimlikNo";
             this.txtTCKimlikNo.Size = new System.Drawing.Size(186, 22);
             this.txtTCKimlikNo.TabIndex = 2;

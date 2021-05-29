@@ -37,8 +37,8 @@
             this.btnSatinAl = new System.Windows.Forms.Button();
             this.lbKoltukTuru = new System.Windows.Forms.Label();
             this.lbSeferID = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,13 +105,14 @@
             // 
             // btnSatinAl
             // 
+            this.btnSatinAl.BackColor = System.Drawing.Color.White;
             this.btnSatinAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSatinAl.Location = new System.Drawing.Point(1015, 26);
             this.btnSatinAl.Name = "btnSatinAl";
-            this.btnSatinAl.Size = new System.Drawing.Size(117, 30);
+            this.btnSatinAl.Size = new System.Drawing.Size(117, 33);
             this.btnSatinAl.TabIndex = 34;
-            this.btnSatinAl.Text = "SATIN AL";
-            this.btnSatinAl.UseVisualStyleBackColor = true;
+            this.btnSatinAl.Text = "SEÇ";
+            this.btnSatinAl.UseVisualStyleBackColor = false;
             this.btnSatinAl.Click += new System.EventHandler(this.btnSatinAl_Click);
             // 
             // lbKoltukTuru
@@ -133,6 +134,15 @@
             this.lbSeferID.TabIndex = 35;
             this.lbSeferID.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Location = new System.Drawing.Point(1, 74);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1386, 3);
+            this.panel1.TabIndex = 38;
+            this.panel1.Visible = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -143,15 +153,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(1, 74);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1386, 3);
-            this.panel1.TabIndex = 38;
-            this.panel1.Visible = false;
             // 
             // ucSefer
             // 
@@ -170,7 +171,7 @@
             this.Controls.Add(this.lbKalkisSaat);
             this.Controls.Add(this.lbKalkisTerminal);
             this.Name = "ucSefer";
-            this.Size = new System.Drawing.Size(1386, 77);
+            this.Size = new System.Drawing.Size(1185, 75);
             this.Load += new System.EventHandler(this.ucSefer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

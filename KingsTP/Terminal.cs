@@ -13,15 +13,21 @@ namespace KingsTP
         int ID;
         string terminalAdi;
 
+        public Terminal()
+        {
+
+        }
+
+        public Terminal(string terminalAdi)
+        {
+            this.terminalAdi = terminalAdi;
+        }
         public void setID(int ID)
         {
             this.ID = ID;
         }
-
-        public void setTerminalAdi(string terminalAdi)
-        {
-            this.terminalAdi = terminalAdi;
-        }
+     
+        
         public bool terminalVarmi(string terminalAdi)
         {
             bool kontrol = false;

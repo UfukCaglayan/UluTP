@@ -28,15 +28,15 @@ namespace KingsTP
                     {
                         if (msbTelefon.Text.Length == 15)
                         {
-                            Uyelik uyelik = new Uyelik(txtAdSoyad.Text, txtTCKimlikNo.Text, msbTelefon.Text, txtEmail.Text, txtSifre.Text);
-                            if (uyelik.emailKontrol(txtEmail.Text))
+                            Kayit kayit = new Kayit(txtAdSoyad.Text, txtTCKimlikNo.Text, msbTelefon.Text, txtEmail.Text, txtSifre.Text);
+                            if (kayit.emailKontrol(txtEmail.Text))
                             {
-                                bool kayitVarmi = uyelik.kayitVarmi();
+                                bool kayitVarmi = kayit.kayitVarmi();
                                 if (kayitVarmi == false)
                                     MessageBox.Show("Aynı TC Kimlik Numarası veya Email adresiyle daha önce kayıt oluşturulmuştur", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 else
                                 {
-                                    int id = uyelik.KayitOl();
+                                    int id = kayit.KayitOl();
                                     MessageBox.Show("Kayıt başarıyla tamamlandı", "Kayıt", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                     GirisBilgileri.KullaniciID = id;
                                     ((frmMain)this.Owner).Giris(txtAdSoyad.Text);

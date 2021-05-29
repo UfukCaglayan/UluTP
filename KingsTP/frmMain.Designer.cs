@@ -137,12 +137,14 @@
             // 
             // btnBilgiKapat
             // 
+            this.btnBilgiKapat.BackColor = System.Drawing.Color.White;
+            this.btnBilgiKapat.BackgroundImage = global::UluTP.Properties.Resources.close;
+            this.btnBilgiKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBilgiKapat.Location = new System.Drawing.Point(781, 6);
             this.btnBilgiKapat.Name = "btnBilgiKapat";
             this.btnBilgiKapat.Size = new System.Drawing.Size(25, 23);
             this.btnBilgiKapat.TabIndex = 28;
-            this.btnBilgiKapat.Text = "x";
-            this.btnBilgiKapat.UseVisualStyleBackColor = true;
+            this.btnBilgiKapat.UseVisualStyleBackColor = false;
             this.btnBilgiKapat.Click += new System.EventHandler(this.btnBilgiKapat_Click);
             // 
             // label5
@@ -259,10 +261,10 @@
             // 
             // pbSofor
             // 
-            this.pbSofor.Image = global::UluTP.Properties.Resources.sofor;
+            this.pbSofor.Image = global::UluTP.Properties.Resources.sofor2;
             this.pbSofor.Location = new System.Drawing.Point(7, 218);
             this.pbSofor.Name = "pbSofor";
-            this.pbSofor.Size = new System.Drawing.Size(89, 59);
+            this.pbSofor.Size = new System.Drawing.Size(80, 55);
             this.pbSofor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbSofor.TabIndex = 46;
             this.pbSofor.TabStop = false;
@@ -302,13 +304,15 @@
             // 
             // btnKapat
             // 
+            this.btnKapat.BackColor = System.Drawing.Color.White;
+            this.btnKapat.BackgroundImage = global::UluTP.Properties.Resources.close;
+            this.btnKapat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKapat.Location = new System.Drawing.Point(1833, 0);
             this.btnKapat.Name = "btnKapat";
-            this.btnKapat.Size = new System.Drawing.Size(27, 26);
+            this.btnKapat.Size = new System.Drawing.Size(25, 23);
             this.btnKapat.TabIndex = 44;
-            this.btnKapat.Text = "x";
-            this.btnKapat.UseVisualStyleBackColor = true;
+            this.btnKapat.UseVisualStyleBackColor = false;
             this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // grpSefer
@@ -474,7 +478,7 @@
             this.pnlSeferUst.Controls.Add(this.lbKalanKoltuk);
             this.pnlSeferUst.Location = new System.Drawing.Point(363, 1042);
             this.pnlSeferUst.Name = "pnlSeferUst";
-            this.pnlSeferUst.Size = new System.Drawing.Size(1184, 34);
+            this.pnlSeferUst.Size = new System.Drawing.Size(1185, 35);
             this.pnlSeferUst.TabIndex = 40;
             // 
             // lbFiyat
@@ -570,7 +574,7 @@
             this.pnlSeferler.BackColor = System.Drawing.Color.Transparent;
             this.pnlSeferler.Location = new System.Drawing.Point(363, 1020);
             this.pnlSeferler.Name = "pnlSeferler";
-            this.pnlSeferler.Size = new System.Drawing.Size(1184, 203);
+            this.pnlSeferler.Size = new System.Drawing.Size(1185, 200);
             this.pnlSeferler.TabIndex = 37;
             // 
             // frmMain

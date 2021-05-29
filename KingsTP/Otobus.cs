@@ -14,19 +14,20 @@ namespace KingsTP
         string plaka;
         int koltukTuruID;
 
+        public Otobus()
+        {
+
+        }
+
+        public Otobus(string plaka, int koltukTuruID)
+        {
+            this.plaka = plaka;
+            this.koltukTuruID = koltukTuruID;
+        }
+
         public void setID(int ID)
         {
             this.ID = ID;
-        }
-
-        public void setPlaka(string plaka)
-        {
-            this.plaka = plaka;
-        }
-
-        public void setKoltukTuruID(int koltukTuruID)
-        {
-            this.koltukTuruID = koltukTuruID;
         }
 
         public bool otobusVarmi(string plaka)

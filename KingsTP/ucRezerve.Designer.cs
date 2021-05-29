@@ -48,6 +48,7 @@
             // 
             this.txTCKimlikNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txTCKimlikNo.Location = new System.Drawing.Point(187, 12);
+            this.txTCKimlikNo.MaxLength = 11;
             this.txTCKimlikNo.Name = "txTCKimlikNo";
             this.txTCKimlikNo.Size = new System.Drawing.Size(128, 28);
             this.txTCKimlikNo.TabIndex = 2;

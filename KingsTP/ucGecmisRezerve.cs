@@ -22,8 +22,8 @@ namespace KingsTP
             DialogResult iptal = MessageBox.Show("İptal etmek istediğinizden emin misiniz ?", "İptal İşlemi", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (iptal == DialogResult.Yes)
             {
-                Sefer sefer = new Sefer();
-                sefer.KoltukArttir(Convert.ToInt32(lbRezerveID.Text));
+                SeferIslem seferIslem = new SeferIslem();
+                seferIslem.KoltukArttir(Convert.ToInt32(lbRezerveID.Text));
                 KoltukRezerve koltukRezerve = new KoltukRezerve();
                 koltukRezerve.RezerveIptal(Convert.ToInt32(lbRezerveID.Text));
                 Form form = Application.OpenForms.Cast<Form>().Where(f => f.GetType() == typeof(frmGecmisRezerve)).FirstOrDefault();

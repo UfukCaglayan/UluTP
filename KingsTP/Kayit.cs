@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KingsTP
 {
-    public class Uyelik
+    public class Kayit
     {
         int ID;
         string adSoyad;
@@ -17,7 +17,7 @@ namespace KingsTP
         string email;
         string sifre;
 
-        public Uyelik(string adSoyad, string TCKimlikNo, string telefon, string email, string sifre)
+        public Kayit(string adSoyad, string TCKimlikNo, string telefon, string email, string sifre)
         {
             this.adSoyad = adSoyad;
             this.TCKimlikNo = TCKimlikNo;

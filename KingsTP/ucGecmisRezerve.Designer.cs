@@ -89,13 +89,14 @@
             // 
             // btnIptal
             // 
+            this.btnIptal.BackColor = System.Drawing.Color.White;
             this.btnIptal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnIptal.Location = new System.Drawing.Point(984, 24);
             this.btnIptal.Name = "btnIptal";
             this.btnIptal.Size = new System.Drawing.Size(122, 32);
             this.btnIptal.TabIndex = 5;
             this.btnIptal.Text = "İPTAL ET";
-            this.btnIptal.UseVisualStyleBackColor = true;
+            this.btnIptal.UseVisualStyleBackColor = false;
             this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // lbVaris
