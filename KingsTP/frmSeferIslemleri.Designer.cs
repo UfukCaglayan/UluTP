@@ -315,6 +315,7 @@
             this.cmbKalkis.Size = new System.Drawing.Size(141, 21);
             this.cmbKalkis.TabIndex = 11;
             this.cmbKalkis.ValueMember = "ID";
+            this.cmbKalkis.SelectedIndexChanged += new System.EventHandler(this.cmbKalkis_SelectedIndexChanged);
             // 
             // label2
             // 

@@ -111,28 +111,38 @@ namespace KingsTP
             }
 
         }
-
+   
         private void btnTemizle_Click(object sender, EventArgs e)
         {
-
+            t_bKod.Text = "";
+            t_hSure.Text = "";
+            t_fiyat.Text = "";
+            guncelleme = false;
         }
 
-       
+       void biletUret()
+        {
+            string idx = "";
+            try
+            {
+                idx = (Convert.ToInt32(dgvSeferler.Rows[dgvSeferler.RowCount - 1].Cells[0].Value) + 1).ToString();
+                t_bKod.Text = string.Concat(cmbKalkis.Text[0], cmbVaris.Text[0], idx);
+            }
+            catch { }
+        }
 
         private void cmbVaris_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string idx="";
-            try
-            {
-                idx = (Convert.ToInt32(dgvSeferler.Rows[dgvSeferler.RowCount - 2].Cells[0].Value)+1).ToString();
-            }
-            catch {}
-            t_bKod.Text = string.Concat(cmbKalkis.Text[0], cmbVaris.Text[0], idx);
+            biletUret();
+        }
+        private void cmbKalkis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            biletUret();
         }
 
         private void dgvSeferler_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-             seciliID = Convert.ToInt32(dgvSeferler.CurrentRow.Cells[0].Value.ToString());
+            seciliID = Convert.ToInt32(dgvSeferler.CurrentRow.Cells[0].Value.ToString());
 
             t_bKod.Text = dgvSeferler.CurrentRow.Cells[5].Value.ToString();
 
@@ -146,5 +156,7 @@ namespace KingsTP
 
             guncelleme = true;
         }
+
+        
     }
 }
