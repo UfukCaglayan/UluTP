@@ -13,10 +13,14 @@ namespace KingsTP
 {
     public partial class frmSeferIslemleri : Form
     {
+        int seciliID;
+        bool guncelleme=false;
         public frmSeferIslemleri()
         {
             InitializeComponent();
         }
+
+
 
         private void frmSeferIslemleri_Load(object sender, EventArgs e)
         {
@@ -37,26 +41,35 @@ namespace KingsTP
                 MessageBox.Show("eksik giriş yaptınız");
                 return;
             }
+
             string gidisTarih = dtGidisTarih.Value.ToString("yyyy-MM-dd");
             string gidisSaat = txtGidisSaat.Text + ":" + txtGidisDakika.Text;
             string gidisTS = gidisTarih + " " + gidisSaat;
-
             int kalTerminal_id = Convert.ToInt32(cmbKalkis.SelectedValue);
             int varTerminal_id = Convert.ToInt32(cmbVaris.SelectedValue);
-
             string bKod = t_bKod.Text;
-
             int hSure = Convert.ToInt32(t_hSure.Text);
-
-            int fiyat = Convert.ToInt32(t_fiyat.Text);
-
+            int fiyat;
+            try {  fiyat = Convert.ToInt32(t_fiyat.Text); }
+            catch
+            {
+                string f = t_fiyat.Text;
+                fiyat = Convert.ToInt32(f.Remove(f.Length-5));
+            }
             int otobusID = Convert.ToInt32(cmbOtobus.SelectedValue);
-
-           // bool gidisDonus = cbGidisDonus.Checked;
-
             int kalanKoltuk = MSSQLDataConnection.SelectIntFromDB("SELECT KoltukSayisi FROM tblKoltukTurleri KT INNER JOIN tblOtobusler O ON KT.ID = O.KoltukTuruID WHERE O.ID = @param1", new SqlParameter[] { new SqlParameter("param1", otobusID) });
-
             Sefer sefer = new Sefer(gidisTS, kalTerminal_id, varTerminal_id, bKod, hSure, fiyat, otobusID, kalanKoltuk);
+            if (guncelleme == true)
+            {
+                sefer.guncelle(seciliID);
+                MessageBox.Show("kayıt güncellendi");
+            }
+            else
+            {
+                sefer.kayit();
+                MessageBox.Show("sefer kaydedildi");
+            }
+            
             goster();
 
         }
@@ -115,6 +128,23 @@ namespace KingsTP
             }
             catch {}
             t_bKod.Text = string.Concat(cmbKalkis.Text[0], cmbVaris.Text[0], idx);
+        }
+
+        private void dgvSeferler_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+             seciliID = Convert.ToInt32(dgvSeferler.CurrentRow.Cells[0].Value.ToString());
+
+            t_bKod.Text = dgvSeferler.CurrentRow.Cells[5].Value.ToString();
+
+            t_hSure.Text = dgvSeferler.CurrentRow.Cells[6].Value.ToString();
+
+            t_fiyat.Text = dgvSeferler.CurrentRow.Cells[8].Value.ToString(); 
+
+            cmbOtobus.SelectedValue = dgvSeferler.CurrentRow.Cells[1].Value.ToString();
+            cmbKalkis.SelectedValue = dgvSeferler.CurrentRow.Cells[2].Value.ToString();
+            cmbVaris.SelectedValue = dgvSeferler.CurrentRow.Cells[3].Value.ToString();
+
+            guncelleme = true;
         }
     }
 }

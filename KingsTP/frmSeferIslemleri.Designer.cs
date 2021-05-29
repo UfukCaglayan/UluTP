@@ -378,6 +378,7 @@
             this.dgvSeferler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSeferler.Size = new System.Drawing.Size(532, 335);
             this.dgvSeferler.TabIndex = 1005;
+            this.dgvSeferler.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSeferler_CellMouseDoubleClick);
             // 
             // groupBox3
             // 

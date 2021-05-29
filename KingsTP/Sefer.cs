@@ -37,7 +37,15 @@ namespace KingsTP
             this.otobusID = otobusID;
             this.kalanKoltuk = kalanKoltuk;
 
+            
 
+
+            
+        }
+
+      
+
+        public void kayit() {
             MSSQLDataConnection.InsertDataToDB("INSERT INTO tblSeferler (OtobusID,KalkisTerminalID,VarisTerminalID,KalkisZaman,BiletKodu,HareketSuresi,KalanKoltuk,Fiyat) VALUES (@param1,@param2,@param3,@param4,@param5,@param6,@param7,@param8)", new SqlParameter[] {
                 new SqlParameter("param1", this.otobusID),
                 new SqlParameter("param2", this.kalTerminal_id),
@@ -49,8 +57,21 @@ namespace KingsTP
                 new SqlParameter("param8", this.fiyat)
             });
         }
+        public void guncelle(int id)
+        {
+            MSSQLDataConnection.InsertDataToDB("UPDATE  tblSeferler SET OtobusID=@param1,KalkisTerminalID=@param2,VarisTerminalID=@param3,KalkisZaman=@param4,BiletKodu=@param5,HareketSuresi=@param6,KalanKoltuk=@param7,Fiyat=@param8 WHERE ID=@param9", new SqlParameter[] {
+                new SqlParameter("param1", this.otobusID),
+                new SqlParameter("param2", this.kalTerminal_id),
+                new SqlParameter("param3", this.varTerminal_id),
+                new SqlParameter("param4", this.gidisTS),
+                new SqlParameter("param5", this.bKod),
+                new SqlParameter("param6", this.hSure),
+                new SqlParameter("param7", this.kalanKoltuk),
+                new SqlParameter("param8", this.fiyat),
+                new SqlParameter("param9", id)
+            });
+        }
 
-            
 
 
         public void KoltukAzalt(int seferID,int rezerve)
