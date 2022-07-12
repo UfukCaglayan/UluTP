@@ -1,4 +1,7 @@
 # UluTP
+Yönetim panelinden sisteme otobüs, terminal ve sefer eklenebileceği, kullanıcı arayüzünden kalkış ve varış noktaları, tarih ve saat seçimi sonrası eklenen
+otobüslerin listeleneceği bir sistem geliştirdik. Kullanıcılar otobüs ve koltuk seçimi yaparak gerekli bilgilerin doldurulması sonucu koltuk rezerve edebilecek
+hale geldi.
 
 Images from app
 ![Otobüs Bilet Satış Sistemi](https://github.com/UfukCaglayan/UluTP/blob/master/images/ulutp1.png?raw=true)
