@@ -6,13 +6,29 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F6B97AC6-6597-42EE-9A68-F51D2B61F487}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>KingsTP</RootNamespace>
-    <AssemblyName>KingsTP</AssemblyName>
+    <RootNamespace>UluTP</RootNamespace>
+    <AssemblyName>UluTP</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\ufukc\OneDrive\Masaüstü\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +49,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>DF97B08D8A2B0E918CD3102FC8017CA0E7AB1B60</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>KingsTP_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -48,29 +76,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmGiris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmGiris.Designer.cs">
+      <DependentUpon>frmGiris.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmKoltukRezerve.cs">
+    <Compile Include="frmKayit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmKoltukRezerve.Designer.cs">
-      <DependentUpon>frmKoltukRezerve.cs</DependentUpon>
+    <Compile Include="frmKayit.Designer.cs">
+      <DependentUpon>frmKayit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSatis.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSatis.Designer.cs">
-      <DependentUpon>frmSatis.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRezerveBilgi.cs">
+    <Compile Include="frmGecmisRezerve.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRezerveBilgi.Designer.cs">
-      <DependentUpon>frmRezerveBilgi.cs</DependentUpon>
+    <Compile Include="frmGecmisRezerve.Designer.cs">
+      <DependentUpon>frmGecmisRezerve.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSeferIslemleri.cs">
       <SubType>Form</SubType>
@@ -96,10 +124,24 @@
     <Compile Include="frmOtobusIslemleri.Designer.cs">
       <DependentUpon>frmOtobusIslemleri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Giris.cs" />
+    <Compile Include="GirisBilgileri.cs" />
+    <Compile Include="KoltukRezerve.cs" />
+    <Compile Include="KoltukTurleri.cs" />
     <Compile Include="MSSQLDataConnection.cs" />
+    <Compile Include="Otobus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeferIslem.cs" />
     <Compile Include="Sefer.cs" />
+    <Compile Include="SingleLinkedList.cs" />
+    <Compile Include="Terminal.cs" />
+    <Compile Include="ucGecmisRezerve.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucGecmisRezerve.Designer.cs">
+      <DependentUpon>ucGecmisRezerve.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucRezerve.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,17 +154,18 @@
     <Compile Include="ucSefer.Designer.cs">
       <DependentUpon>ucSefer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Kayit.cs" />
+    <EmbeddedResource Include="frmGiris.resx">
+      <DependentUpon>frmGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmKoltukRezerve.resx">
-      <DependentUpon>frmKoltukRezerve.cs</DependentUpon>
+    <EmbeddedResource Include="frmKayit.resx">
+      <DependentUpon>frmKayit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSatis.resx">
-      <DependentUpon>frmSatis.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRezerveBilgi.resx">
-      <DependentUpon>frmRezerveBilgi.cs</DependentUpon>
+    <EmbeddedResource Include="frmGecmisRezerve.resx">
+      <DependentUpon>frmGecmisRezerve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSeferIslemleri.resx">
       <DependentUpon>frmSeferIslemleri.cs</DependentUpon>
@@ -146,12 +189,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucGecmisRezerve.resx">
+      <DependentUpon>ucGecmisRezerve.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucRezerve.resx">
       <DependentUpon>ucRezerve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucSefer.resx">
       <DependentUpon>ucSefer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="KingsTP_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,10 +210,80 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\kings.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bright-road.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snacks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BISI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kayit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cizgi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_turkuaz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asdf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulanık.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\golge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\son2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\bos.png" />
+    <None Include="Resources\sofor2.png" />
+    <None Include="Resources\sofor1.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\cizgi1.png" />
+    <None Include="Resources\ulutplogo.jpeg" />
+    <None Include="Resources\ulutp.jpeg" />
+    <None Include="Resources\sofor.png" />
+    <None Include="Resources\kadin.png" />
+    <None Include="Resources\erkek.png" />
+    <None Include="Resources\boskol.png" />
+    <None Include="Resources\boskoltuk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
