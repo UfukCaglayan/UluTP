@@ -1,5 +1,5 @@
 # UluTP
-Yönetim panelinden sisteme otobüs, terminal ve sefer eklenebileceği, kullanıcı arayüzünden kalkış ve varış noktaları, tarih ve saat seçimi sonrası eklenen
+Yönetim panelinden sisteme otobüs, terminal ve sefer eklenebileceği, kullanıcı arayüzünden kalkış ve varış noktaları, tarih ve saat seçimi yapılmasından sonra eklenen
 otobüslerin listeleneceği bir sistem geliştirdik. Kullanıcılar otobüs ve koltuk seçimi yaparak gerekli bilgilerin doldurulması sonucu koltuk rezerve edebilecek
 hale geldi.
 
